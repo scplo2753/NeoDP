@@ -21,6 +21,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    Resource/4.37.6/DTCInfo.json \
     src/4_37_6_Default.ini \
     src/Actions
 

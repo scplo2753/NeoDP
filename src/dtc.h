@@ -2,14 +2,19 @@
 #define DTC_H
 
 #include <QSettings>
+#include <QVector>
+#include <QMultiMap>
 class DTC
 {
 public:
     DTC();
     ~DTC();
 private:
-    QString strCfg=":/src/4_37_6_Default.ini";
-    QSettings *set;
+    QSettings *STPTset;
+    QVector<QString> *STPTActions; //Are SteerPoint's Action, not Qt's Action Func
+
+    void LoadSTPTActions();
+    void LoadSTPTSet();
 };
 
 #endif // DTC_H

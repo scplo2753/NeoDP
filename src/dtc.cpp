@@ -1,13 +1,37 @@
 #include "dtc.h"
 #include <QSettings>
+#include <QTextStream>
+#include <QVector>
+#include <QFile>
 
-
-DTC::DTC():set(new QSettings(strCfg,QSettings::IniFormat))
+DTC::DTC()
 {
-   QString
+    LoadSTPTActions();
 }
 
 DTC::~DTC()
 {
 
+}
+
+void DTC::LoadSTPTActions()
+{
+    QString FilePath=":/COMMON/Resource/Actions"; //Write to Settings.ini for the Future
+    QFile ActionsFile(FilePath);
+    if(ActionsFile.open(QIODevice::ReadOnly))
+    {
+        QTextStream in(&ActionsFile);
+            int &&LineCount=in.readLine().toInt();
+            STPTActions=new QVector<QString>();
+            STPTActions->reserve(LineCount);
+            while (!in.atEnd()) {
+            STPTActions->push_back(in.readLine());
+            }
+    }
+}
+
+void DTC::LoadSTPTSet()
+{
+    QString FilePath=":/4_37_6_DTC/Resource/4.37.6/STPTs.ini";
+    STPTset=new QSettings(FilePath,QSettings::IniFormat) ;
 }
