@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/DefaultDTC">
+        <file>src/4_37_6_Default.ini</file>
+    </qresource>
+</RCC>
