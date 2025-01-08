@@ -6,9 +6,9 @@
 #include <QStringList>
 
 DTC::DTC()
+    :DTCSettings(new QSettings(ResourcesPath::BMS437U6DefaultDTC,QSettings::IniFormat))
 {
-    LoadSTPTActions();
-    LoadSTPTSet();
+    LoadSTPTKeys();
 }
 
 DTC::~DTC()
@@ -16,26 +16,14 @@ DTC::~DTC()
 
 }
 
-void DTC::LoadSTPTActions()
+void DTC::LoadSTPTKeys()
 {
-    QString FilePath=":/COMMON/Resource/Actions"; //Write to Settings.ini for the Future
-    QFile ActionsFile(FilePath);
-    if(ActionsFile.open(QIODevice::ReadOnly))
-    {
-        QTextStream in(&ActionsFile);
-            int &&LineCount=in.readLine().toInt();
-            STPTActions=new QVector<QString>();
-            STPTActions->reserve(LineCount);
-            while (!in.atEnd()) {
-            STPTActions->push_back(in.readLine());
-            }
-    }
+    DTCSettings->beginGroup("STPT");
+    STPTkeys=new QStringList(DTCSettings->allKeys());
+    DTCSettings->endGroup();
 }
 
-void DTC::LoadSTPTSet()
+void DTC::LoadRadioSection()
 {
-    QString FilePath=":/4_37_6_DTC/Resource/4.37.6/STPTs.ini";
-    STPTset=new QSettings(FilePath,QSettings::IniFormat) ;
-    STPTset->beginGroup("STPT");
-    STPTkeys=new QStringList(STPTset->allKeys());
+
 }

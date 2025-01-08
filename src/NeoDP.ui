@@ -185,13 +185,6 @@
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QPushButton" name="STPT_sub_Cus_pBut">
-                <property name="text">
-                 <string>Customise/Harpoon Points</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </item>
            </layout>
