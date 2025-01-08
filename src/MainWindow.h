@@ -20,7 +20,9 @@ private:
     Ui_NeoDP *ui;
     bool isSTPTWidgetExpanded = false;
     QTableView *STPTTableView;
-    QStandardItemModel *STPTsModel;
+    QStandardItemModel *STPTTargetItemModel;
+    QStandardItemModel *STPTLineItemModel;
+    QStandardItemModel *STPTPrePlannedItemModel;
 
 private slots:
     void on_Exit_pBut_clicked();

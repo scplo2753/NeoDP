@@ -7,7 +7,7 @@
 #include <QStandardItemModel>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui_NeoDP),STPTTableView(new QTableView()),STPTsModel(new QStandardItemModel())
+    : QMainWindow(parent), ui(new Ui_NeoDP),STPTTableView(new QTableView())
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);

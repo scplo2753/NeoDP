@@ -165,13 +165,6 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="STPT_sub_Bullseye_pBut">
-                <property name="text">
-                 <string>Bullseye</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QPushButton" name="STPT_sub_Lines_pBut">
                 <property name="text">
                  <string>Lines</string>

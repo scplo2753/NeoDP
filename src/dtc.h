@@ -29,7 +29,7 @@ private:
     QStringList *VHFkeys;
     QStringList *ILSkeys;
 
-    void LoadSTPTKeys();
+    void LoadSTPTSection();
     void LoadRadioSection();
 };
 

@@ -8,7 +8,7 @@
 DTC::DTC()
     :DTCSettings(new QSettings(ResourcesPath::BMS437U6DefaultDTC,QSettings::IniFormat))
 {
-    LoadSTPTKeys();
+    LoadSTPTSection();
 }
 
 DTC::~DTC()
@@ -16,7 +16,7 @@ DTC::~DTC()
 
 }
 
-void DTC::LoadSTPTKeys()
+void DTC::LoadSTPTSection()
 {
     DTCSettings->beginGroup("STPT");
     STPTkeys=new QStringList(DTCSettings->allKeys());
