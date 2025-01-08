@@ -1,8 +1,6 @@
 <RCC>
-    <qresource prefix="/COMMON">
-        <file>Resource/Actions</file>
-    </qresource>
-    <qresource prefix="/4_37_6_DTC">
-        <file>Resource/4.37.6/STPTs.ini</file>
+    <qresource prefix="/">
+        <file>Resources/Actions</file>
+        <file>Resources/4.37.6/4_37_6DefaultDTC.ini</file>
     </qresource>
 </RCC>
