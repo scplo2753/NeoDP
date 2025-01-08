@@ -3,10 +3,12 @@
 #include <QTextStream>
 #include <QVector>
 #include <QFile>
+#include <QStringList>
 
 DTC::DTC()
 {
     LoadSTPTActions();
+    LoadSTPTSet();
 }
 
 DTC::~DTC()
@@ -34,4 +36,6 @@ void DTC::LoadSTPTSet()
 {
     QString FilePath=":/4_37_6_DTC/Resource/4.37.6/STPTs.ini";
     STPTset=new QSettings(FilePath,QSettings::IniFormat) ;
+    STPTset->beginGroup("STPT");
+    STPTkeys=new QStringList(STPTset->allKeys());
 }

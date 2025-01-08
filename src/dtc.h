@@ -4,6 +4,7 @@
 #include <QSettings>
 #include <QVector>
 #include <QMultiMap>
+#include <QStringList>
 class DTC
 {
 public:
@@ -11,7 +12,8 @@ public:
     ~DTC();
 private:
     QSettings *STPTset;
-    QVector<QString> *STPTActions; //Are SteerPoint's Action, not Qt's Action Func
+    QVector<QString> *STPTkeys;
+    QStringList *STPTActions; //Are SteerPoint's Action, not Qt's Action Func
 
     void LoadSTPTActions();
     void LoadSTPTSet();
