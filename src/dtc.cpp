@@ -1,4 +1,5 @@
 #include "dtc.h"
+#include "Common/DTCInfo.h"
 #include <QSettings>
 #include <QTextStream>
 #include <QVector>
@@ -18,9 +19,10 @@ DTC::~DTC()
 
 void DTC::LoadSTPTSection()
 {
-    DTCSettings->beginGroup("STPT");
-    STPTkeys=new QStringList(DTCSettings->allKeys());
-    DTCSettings->endGroup();
+    STPTItemModel=new QStandardItemModel();
+    STPTItemModel->setHorizontalHeaderLabels(STPTInfo::STPTHeader);
+    DTCSettings->beginReadArray("STPT");
+
 }
 
 void DTC::LoadRadioSection()

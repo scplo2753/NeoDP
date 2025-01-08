@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QMultiMap>
 #include <QStringList>
+#include <QStandardItemModel>
 
 namespace ResourcesPath
 {
@@ -23,11 +24,13 @@ private:
 
     //[STPT]
     QStringList *STPTkeys;
+    QStandardItemModel *STPTItemModel;
 
     //[Radio]
     QStringList *UHFkeys;
     QStringList *VHFkeys;
     QStringList *ILSkeys;
+    QStandardItemModel *RadioItemModel;
 
     void LoadSTPTSection();
     void LoadRadioSection();
