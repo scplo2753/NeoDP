@@ -2,10 +2,20 @@
 #define DTCINFO_H
 
 #include <QStringList>
+namespace DTCInfo {
+const QStringList Sections={"Bullseye", "COMMS",
+    "EWS" ,
+    "HARM" ,
+    "IFF" ,
+    "LINK16",
+    "MAP_POP",
+    "MFD",
+    "Radio","STPT" };
+const QString BMS437U6DefaultDTC = "://Resources/4.37.6/4_37_6DefaultDTC.ini";
 namespace STPTInfo
 {
-    const int STPT_TargetCount = 42;
-    const int STPT_TargetColumnCount = 5;
+    const int STPTRowCount = 42;
+const int STPTColumnCount= 5;
     const QStringList STPTActions = {
         "Nav",
         "TakeOff",
@@ -38,5 +48,6 @@ namespace STPTInfo
         "B5",
     };
     const QStringList STPTHeader={"Steering Point","Latitude","Longtitude","Altitude","Action","Target"};
-}
+    }
+    }
 #endif // DTCINFO_H

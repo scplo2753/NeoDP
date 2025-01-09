@@ -1,5 +1,6 @@
 #pragma once
 #include "ui_NeoDP.h"
+#include "DTC/dtc.h"
 #include <QSpinBox>
 #include <QFontComboBox>
 #include <QMainWindow>
@@ -19,10 +20,7 @@ public:
 private:
     Ui_NeoDP *ui;
     bool isSTPTWidgetExpanded = false;
-    QTableView *STPTTableView;
-    QStandardItemModel *STPTTargetItemModel;
-    QStandardItemModel *STPTLineItemModel;
-    QStandardItemModel *STPTPrePlannedItemModel;
+    DTC *pDTC;
 
 private slots:
     void on_Exit_pBut_clicked();

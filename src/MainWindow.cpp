@@ -1,21 +1,25 @@
 #include "MainWindow.h"
 #include "ui_NeoDP.h"
+#include "DTC/dtc.h"
 #include <QMessageBox>
 #include <QToolBar>
 #include <QLabel>
 #include <QTableView>
 #include <QStandardItemModel>
+#include <QPointer>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui_NeoDP),STPTTableView(new QTableView())
+    : QMainWindow(parent), ui(new Ui_NeoDP),pDTC(new DTC())
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);
     ui->DockSTPTWidget->hide();
+    ui->SteerPointView->setModel(pDTC->getSTPTItemModel());
 }
 
 MainWindow::~MainWindow()
 {
+    delete pDTC;
     delete ui;
 }
 

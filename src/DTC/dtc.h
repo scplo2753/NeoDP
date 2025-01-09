@@ -7,29 +7,26 @@
 #include <QStringList>
 #include <QStandardItemModel>
 
-namespace ResourcesPath
-{
-    const QString Actions = "://Resources/Actions";
-    const QString BMS437U6DefaultDTC = "://Resources/4.37.6/4_37_6DefaultDTC.ini";
-}
-
 class DTC
 {
 public:
     DTC();
     ~DTC();
+    QStandardItemModel* getSTPTItemModel() const;
 
 private:
     QSettings *DTCSettings;
 
     //[STPT]
-    QStringList *STPTkeys;
+    QStringList STPTKeys;
+    QStringList TGTKeys;
+    QStringList LinesKeys;
     QStandardItemModel *STPTItemModel;
 
     //[Radio]
-    QStringList *UHFkeys;
-    QStringList *VHFkeys;
-    QStringList *ILSkeys;
+    QStringList UHFkeys;
+    QStringList VHFkeys;
+    QStringList ILSkeys;
     QStandardItemModel *RadioItemModel;
 
     void LoadSTPTSection();
