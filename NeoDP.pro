@@ -8,12 +8,13 @@ win32-msvc*:QMAKE_CXXFLAGS += /utf-8
 SOURCES += \
     $$files($$PWD/src/*.cpp) \
     $$files(src/Common/*.cpp) \
-    $$files(src/DTC/*.cpp)
+    $$files(src/DTC/*.cpp) \
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
     $$files(src/Common/*.h) \
-    $$files(src/DTC/*.h)
+    $$files(src/DTC/*.h) \
+
 
 FORMS += $$PWD/src/NeoDP.ui
 
