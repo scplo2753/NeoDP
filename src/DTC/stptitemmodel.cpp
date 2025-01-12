@@ -62,23 +62,16 @@ Qt::ItemFlags STPTItemModel::flags(const QModelIndex &index) const
 {
     int column=index.column();
     int row=index.row();
+    QString keyName=STPTData.at(row).Name.split('_').at(0);
     switch (column) {
-    case 0:
-        return QAbstractItemModel::flags(index)|Qt::ItemIsEnabled;
-    case 1:
-        return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
-    case 2:
-        return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
-    case 3:
-        return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
     case 4:
-        if(!STPTData.at(row).Action.isNull())
-            return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
+        if(keyName=="lineSTPT")
+            return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled;
     case 5:
-        if(!STPTData.at(row).Target.isNull())
-            return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
+        if(keyName=="lineSTPT")
+            return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled;
     }
-    return QAbstractItemModel::flags(index)|Qt::ItemIsEnabled;
+    return QAbstractItemModel::flags(index)|Qt::ItemIsEditable;
 }
 
 void STPTItemModel::appendRow(const STPTStruct rowContent)
