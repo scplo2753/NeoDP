@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);
     ui->DockSTPTWidget->hide();
-    ui->SteerPointView->setModel(pDTC->getSTPTItemModel());
+    ui->SteerPointView->setModel(pDTC->getSTPTTabModel());
 }
 
 MainWindow::~MainWindow()

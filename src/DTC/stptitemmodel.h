@@ -2,25 +2,39 @@
 #define STPTITEMMODEL_H
 
 #include "qstandarditemmodel.h"
-#include <QAbstractItemModel>
+#include <QAbstractTableModel>
 
-class STPTItemModel : public QAbstractItemModel
+struct STPTStruct{
+    QString Name;
+    qreal Latitude;
+    qreal Longtitude;
+    qreal Altitude;
+    QString Action;
+    QString Target;
+
+    void clear()
+    {
+        Name=QString();
+        Latitude=qreal();
+        Longtitude=qreal();
+        Altitude-=qreal();
+        Action=QString();
+        Target=QString();
+    }
+};
+
+class STPTItemModel : public QAbstractTableModel
 {
     Q_OBJECT
-    struct STPTStruct{
-        QString Name;
-        int Latitude;
-        int Longtitude;
-        int Altitude;
-        QStandardItem Action=QStandardItem("");
-        QStandardItem Target=QStandardItem("");
-    };
+
 public:
     explicit STPTItemModel(QObject *parent = nullptr);
     QVariant data(const QModelIndex &index,int role=Qt::DisplayRole) const override;
     int rowCount(const QModelIndex &parent=QModelIndex()) const override;
     int columnCount(const QModelIndex &parent=QModelIndex()) const override;
-    QModelIndex index(int row,int column,const QModelIndex &parent=QModelIndex()) const override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+
+    void appendRow(const STPTStruct rowContent);
 private:
     QVector<STPTStruct> STPTData;
 };

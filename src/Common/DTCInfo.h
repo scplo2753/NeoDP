@@ -9,7 +9,7 @@ namespace DTCInfo
     namespace STPTInfo
     {
         const int STPTRowCount = 42;
-        const int STPTColumnCount = 5;
+        const int STPTColumnCount = 6;
         const QVector<QString> STPTActions = {
             "Nav",
             "TakeOff",

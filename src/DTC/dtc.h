@@ -1,6 +1,7 @@
 #ifndef DTC_H
 #define DTC_H
 
+#include "stptitemmodel.h"
 #include <QSettings>
 #include <QVector>
 #include <QMultiMap>
@@ -12,7 +13,7 @@ class DTC
 public:
     DTC();
     ~DTC();
-    QStandardItemModel* getSTPTItemModel() const;
+    STPTItemModel* getSTPTTabModel() const;
 
 private:
     QSettings *DTCSettings;
@@ -21,7 +22,7 @@ private:
     QStringList STPTKeys;
     QStringList TGTKeys;
     QStringList LinesKeys;
-    QStandardItemModel *STPTItemModel;
+    STPTItemModel *STPTTabModel;
 
     //[Radio]
     QStringList UHFkeys;

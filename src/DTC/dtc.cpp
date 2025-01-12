@@ -1,5 +1,6 @@
 #include "dtc.h"
 #include "../Common/DTCInfo.h"
+#include "stptitemmodel.h"
 #include <QSettings>
 #include <QTextStream>
 #include <QStringView>
@@ -16,35 +17,36 @@ DTC::DTC()
 
 DTC::~DTC()
 {
-}
+  }
 
 void DTC::LoadSTPTSection()
 {
-    STPTItemModel=new QStandardItemModel();
+    STPTTabModel=new STPTItemModel();
 
     DTCSettings->beginReadArray("STPT");
     STPTKeys=QStringList(DTCSettings->allKeys());
-    QList<QStandardItem *> rowItems;
+    STPTStruct STPTrow;
     QStringList values;
     for(auto i:STPTKeys)
     {
-        rowItems.clear();
+        STPTrow.clear();
         values.clear();
-        rowItems.append(new QStandardItem(i));
+        STPTrow.Name=i;
         values=DTCSettings->value(i).value<QStringList>();
-        for(auto j:values)
+        STPTrow.Latitude=values[0].toDouble();
+        STPTrow.Longtitude=values[1].toDouble();
+        STPTrow.Altitude=values[2].toDouble();
+        if(values.size()>3)
         {
-            rowItems.append(new QStandardItem(j));
+            STPTrow.Action=values[3];
+            STPTrow.Target=values[4];
         }
-        while(rowItems.size()<DTCInfo::STPTInfo::STPTColumnCount)
-            rowItems.append(new QStandardItem(""));
-        STPTItemModel->appendRow(rowItems);
+        STPTTabModel->appendRow(STPTrow);
     }
     DTCSettings->endArray();
-    STPTItemModel->setHorizontalHeaderLabels(DTCInfo::STPTInfo::STPTHeader);
 }
 
-QStandardItemModel * DTC::getSTPTItemModel() const
+STPTItemModel* DTC::getSTPTTabModel() const
 {
-    return STPTItemModel;
+    return STPTTabModel;
 }
