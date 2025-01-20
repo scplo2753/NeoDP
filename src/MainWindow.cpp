@@ -9,12 +9,13 @@
 #include <QPointer>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui_NeoDP),pDTC(new DTC())
+    : QMainWindow(parent), ui(new Ui_NeoDP),pDTC(new DTC()),STPTSortFilterProxyModel(new QSortFilterProxyModel())
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);
     ui->DockSTPTWidget->hide();
-    ui->SteerPointView->setModel(pDTC->getSTPTTabModel());
+    ui->SteerPointView->setModel(STPTSortFilterProxyModel);
+    STPTSortFilterProxyModel->setSourceModel(pDTC->getSTPTTabModel());
 }
 
 MainWindow::~MainWindow()

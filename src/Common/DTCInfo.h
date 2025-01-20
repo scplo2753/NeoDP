@@ -41,7 +41,7 @@ namespace DTCInfo
             "Land 2",
             "B5",
         };
-        const QVector<QString> STPTHeader = {"Steering Point", "Latitude", "Longtitude", "Altitude", "Action", "Target"};
+        const QVector<QString> STPTHeader = {"Steering Point", "Latitude", "Longtitude", "Altitude", "Action/Range", "Target"};
     }
 }
 #endif // DTCINFO_H

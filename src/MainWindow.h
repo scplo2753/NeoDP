@@ -8,6 +8,7 @@
 #include <QProgressBar>
 #include <QTableView>
 #include <QStandardItemModel>
+#include <QSortFilterProxyModel>
 
 class MainWindow: public QMainWindow
 {
@@ -20,6 +21,7 @@ public:
 private:
     Ui_NeoDP *ui;
     bool isSTPTWidgetExpanded = false;
+    QSortFilterProxyModel* STPTSortFilterProxyModel;
     DTC *pDTC;
 
 private slots:

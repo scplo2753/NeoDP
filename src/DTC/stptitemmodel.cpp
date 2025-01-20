@@ -39,8 +39,7 @@ QVariant STPTItemModel::data(const QModelIndex &index,int role) const
         case 5:
             if(!STPTData.at(row).Target.isNull())
                 return STPTData.at(row).Target;
-        default:
-            return QVariant();
+
         }
     }
     return QVariant();
@@ -58,12 +57,30 @@ int STPTItemModel::columnCount(const QModelIndex &index)const
     return DTCInfo::STPTInfo::STPTColumnCount;
 }
 
+QVariant STPTItemModel::headerData(int section,Qt::Orientation orientation,int role) const
+{
+    if(role==Qt::DisplayRole)
+    {
+        if(orientation==Qt::Horizontal)
+        {
+            if(section<=DTCInfo::STPTInfo::STPTHeader.size()-1)
+                return DTCInfo::STPTInfo::STPTHeader.at(section);
+            else
+                return QVariant();
+        }
+    }
+    return QVariant();
+}
+
 Qt::ItemFlags STPTItemModel::flags(const QModelIndex &index) const
 {
     int column=index.column();
     int row=index.row();
+
     QString keyName=STPTData.at(row).Name.split('_').at(0);
     switch (column) {
+    case 0:
+        return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled;
     case 4:
         if(keyName=="lineSTPT")
             return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled;
