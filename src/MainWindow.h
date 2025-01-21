@@ -27,5 +27,9 @@ private:
 private slots:
     void on_Exit_pBut_clicked();
 
-    void on_Dock_STPT_pBut_clicked(bool checked);
+    void on_Dock_STPT_pBut_clicked();
+    void on_STPT_sub_INS_pBut_clicked();
+    void on_STPT_sub_Lines_pBut_clicked();
+    void on_STPT_sub_PPTs_pBut_clicked();
+    void on_pushButton_3_clicked();
 };
