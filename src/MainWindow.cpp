@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "ui_NeoDP.h"
 #include "DTC/dtc.h"
+#include "DTC/stptsortfilterproxymodel.h"
 #include <QMessageBox>
 #include <QToolBar>
 #include <QLabel>
@@ -10,13 +11,14 @@
 #include <QPointer>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui_NeoDP),STPTSortFilterProxyModel(new QSortFilterProxyModel()),pDTC(new DTC())
+    : QMainWindow(parent), ui(new Ui_NeoDP),STPTProxyModel(new STPTSortFilterProxyModel()),pDTC(new DTC())
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);
     ui->DockSTPTWidget->hide();
-    ui->SteerPointView->setModel(STPTSortFilterProxyModel);
-    STPTSortFilterProxyModel->setSourceModel(pDTC->getSTPTTabModel());
+    ui->SteerPointView->setModel(STPTProxyModel);
+    STPTProxyModel->setSourceModel(pDTC->getSTPTTabModel());
+    ui->SteerPointView->setSortingEnabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -33,8 +35,8 @@ void MainWindow::on_Exit_pBut_clicked()
 void MainWindow::on_Dock_STPT_pBut_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTSortFilterProxyModel->setFilterRegularExpression("");
-    STPTSortFilterProxyModel->invalidate();
+    STPTProxyModel->setFilterRegularExpression("");
+    STPTProxyModel->invalidate();
     if (isSTPTWidgetExpanded)
     {
         isSTPTWidgetExpanded = false;
@@ -50,25 +52,25 @@ void MainWindow::on_Dock_STPT_pBut_clicked()
 void MainWindow::on_STPT_sub_INS_pBut_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTSortFilterProxyModel->setFilterRegularExpression("^target");
+    STPTProxyModel->setFilterRegularExpression("^target");
 }
 
 void MainWindow::on_STPT_sub_Lines_pBut_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTSortFilterProxyModel->setFilterRegularExpression("^lineSTPT");
+    STPTProxyModel->setFilterRegularExpression("^lineSTPT");
 }
 
 
 void MainWindow::on_STPT_sub_PPTs_pBut_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTSortFilterProxyModel->setFilterRegularExpression("^ppt");
+    STPTProxyModel->setFilterRegularExpression("^ppt");
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTSortFilterProxyModel->setFilterRegularExpression("^wpntarget");
+    STPTProxyModel->setFilterRegularExpression("^wpntarget");
 }
 

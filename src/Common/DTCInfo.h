@@ -8,6 +8,7 @@ namespace DTCInfo
     const QString BMS437U6DefaultDTC = "://Resources/4.37.6/4_37_6DefaultDTC.ini";
     namespace STPTInfo
     {
+        const QString STPTSectionPath="://Resources/4.37.6/STPTs.ini";
         const int STPTRowCount = 42;
         const int STPTColumnCount = 6;
         const QVector<QString> STPTActions = {

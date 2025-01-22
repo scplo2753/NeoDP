@@ -9,11 +9,14 @@ SOURCES += \
     $$files($$PWD/src/*.cpp) \
     $$files(src/Common/*.cpp) \
     $$files(src/DTC/*.cpp) \
+    src/DTC/stptsortfilterproxymodel.cpp
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
     $$files(src/Common/*.h) \
     $$files(src/DTC/*.h) \
+    src/DTC/STPTMap.h \
+    src/DTC/stptsortfilterproxymodel.h
 
 
 FORMS += $$PWD/src/NeoDP.ui

@@ -10,7 +10,7 @@
 #include <QDebug>
 
 DTC::DTC()
-	:DTCSettings(new QSettings(DTCInfo::BMS437U6DefaultDTC, QSettings::IniFormat))
+    :DTCSettings(new QSettings(DTCInfo::STPTInfo::STPTSectionPath, QSettings::IniFormat))
 {
 	LoadSTPTSection();
 }
