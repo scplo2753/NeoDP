@@ -1,28 +1,34 @@
 #include "dtc.h"
+
 #include "../Common/DTCInfo.h"
-#include "stptitemmodel.h"
-#include <QSettings>
-#include <QTextStream>
-#include <QStringView>
-#include <QVector>
-#include <QFile>
-#include <QStringList>
+#include "ui_NeoDP.h"
 #include <QDebug>
 
-DTC::DTC()
-    :DTCSettings(new QSettings(DTCInfo::STPTInfo::STPTSectionPath, QSettings::IniFormat))
+DTC::DTC(Ui_NeoDP *ui,QObject *parent)
+    :QObject(parent),
+    ui(ui),
+    DTCSettings(new QSettings(DTCInfo::STPTInfo::STPTSectionPath, QSettings::IniFormat)),
+    STPTTabModel(new STPTItemModel()),
+    STPTProxyModel(new STPTSortFilterProxyModel())
 {
-	LoadSTPTSection();
+    InitSTPTSection();
+    STPTProxyModel->setSourceModel(STPTTabModel);
+    ui->SteerPointView->setModel(STPTProxyModel);
+    ui->SteerPointView->setSortingEnabled(true);
+
+    connect(ui->Dock_STPT_pBut,&QPushButton::clicked,this,&DTC::STPTPuButtonClicked);
+    connect(ui->STPT_sub_INS_pBut,&QPushButton::clicked,this,&DTC::STPTsubInsPuButtonClicked);
+    connect(ui->STPT_sub_Lines_pBut,&QPushButton::clicked,this,&DTC::STPTsubLinesPuButtonClicked);
+    connect(ui->STPT_sub_PPTs_pBut,&QPushButton::clicked,this,&DTC::STPTsubPPTsPuButtonClicked);
+    connect(ui->STPT_sub_WPNT_pBut,&QPushButton::clicked,this,&DTC::STPTsubWPNTPuButtonClicked);
 }
 
 DTC::~DTC()
 {
 }
 
-void DTC::LoadSTPTSection()
+void DTC::InitSTPTSection()
 {
-	STPTTabModel = new STPTItemModel();
-
 	DTCSettings->beginReadArray("STPT");
 	STPTKeys = QStringList(DTCSettings->allKeys());
 	STPTStruct STPTrow;
@@ -34,7 +40,7 @@ void DTC::LoadSTPTSection()
 		STPTrow.Name = i;
 		values = DTCSettings->value(i).value<QStringList>();
 		STPTrow.Latitude = values[0].toDouble();
-		STPTrow.Longtitude = values[1].toDouble();
+		STPTrow.Longitude = values[1].toDouble();
 		STPTrow.Altitude = values[2].toDouble();
 		if (values.size() > 3)
 		{
@@ -46,7 +52,36 @@ void DTC::LoadSTPTSection()
 	DTCSettings->endArray();
 }
 
-STPTItemModel* DTC::getSTPTTabModel() const
+void DTC::STPTPuButtonClicked(bool checked)
 {
-	return STPTTabModel;
+	Q_UNUSED(checked)
+    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
+    STPTProxyModel->setFilterRegularExpression("");
+    STPTProxyModel->invalidate();
+    ui->DockSTPTWidget->show();
+}
+
+void DTC::STPTsubInsPuButtonClicked(bool check)
+{
+    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
+    STPTProxyModel->setFilterRegularExpression("^target");
+}
+
+void DTC::STPTsubLinesPuButtonClicked(bool check)
+{
+    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
+    STPTProxyModel->setFilterRegularExpression("^lineSTPT");
+}
+
+
+void DTC::STPTsubPPTsPuButtonClicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
+    STPTProxyModel->setFilterRegularExpression("^ppt");
+}
+
+void DTC::STPTsubWPNTPuButtonClicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
+    STPTProxyModel->setFilterRegularExpression("^wpntarget");
 }

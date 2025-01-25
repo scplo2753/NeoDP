@@ -9,6 +9,7 @@ SOURCES += \
     $$files($$PWD/src/*.cpp) \
     $$files(src/Common/*.cpp) \
     $$files(src/DTC/*.cpp) \
+    src/DTC/harmitemmodel.cpp \
     src/DTC/stptsortfilterproxymodel.cpp
 
 HEADERS += \
@@ -16,6 +17,7 @@ HEADERS += \
     $$files(src/Common/*.h) \
     $$files(src/DTC/*.h) \
     src/DTC/STPTMap.h \
+    src/DTC/harmitemmodel.h \
     src/DTC/stptsortfilterproxymodel.h
 
 

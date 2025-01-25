@@ -7,7 +7,7 @@
 struct STPTStruct{
     QString Name;
     qreal Latitude;
-    qreal Longtitude;
+    qreal Longitude;
     qreal Altitude;
     QString Action;
     QString Target;
@@ -16,7 +16,7 @@ struct STPTStruct{
     {
         Name=QString();
         Latitude=qreal();
-        Longtitude=qreal();
+        Longitude=qreal();
         Altitude-=qreal();
         Action=QString();
         Target=QString();
@@ -36,6 +36,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     void appendRow(const STPTStruct rowContent);
+    const STPTItemModel* getPtr()const;
 private:
     QVector<STPTStruct> STPTData;
 };

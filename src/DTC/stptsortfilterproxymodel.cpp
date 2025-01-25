@@ -19,3 +19,8 @@ bool STPTSortFilterProxyModel::lessThan(const QModelIndex &source_left,const QMo
     }
     return true;
 }
+
+const STPTSortFilterProxyModel* STPTSortFilterProxyModel::getPtr() const
+{
+    return this;
+}

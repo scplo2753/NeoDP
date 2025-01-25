@@ -2,36 +2,39 @@
 #define DTC_H
 
 #include "stptitemmodel.h"
+#include "stptsortfilterproxymodel.h"
+#include "harmitemmodel.h"
+#include "ui_NeoDP.h"
 #include <QSettings>
 #include <QVector>
 #include <QMultiMap>
 #include <QStringList>
 #include <QStandardItemModel>
 
-class DTC
+class DTC:public QObject
 {
+    Q_OBJECT
 public:
-    DTC();
+    explicit DTC(Ui_NeoDP *ui,QObject *parent=nullptr);
     ~DTC();
-    STPTItemModel* getSTPTTabModel() const;
 
 private:
+    Ui_NeoDP *ui;
     QSettings *DTCSettings;
 
     //[STPT]
-    QStringList STPTKeys;
-    QStringList TGTKeys;
-    QStringList LinesKeys;
     STPTItemModel *STPTTabModel;
+    STPTSortFilterProxyModel *STPTProxyModel;
+    QStringList STPTKeys;
 
-    //[Radio]
-    QStringList UHFkeys;
-    QStringList VHFkeys;
-    QStringList ILSkeys;
-    QStandardItemModel *RadioItemModel;
+    void InitSTPTSection();
 
-    void LoadSTPTSection();
-    void LoadRadioSection();
+private slots:
+    void STPTPuButtonClicked(bool checked=false);
+    void STPTsubInsPuButtonClicked(bool checked=false);
+    void STPTsubLinesPuButtonClicked(bool check=false);
+    void STPTsubPPTsPuButtonClicked();
+    void STPTsubWPNTPuButtonClicked();
 };
 
 #endif // DTC_H

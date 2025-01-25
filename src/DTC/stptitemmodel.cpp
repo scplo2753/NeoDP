@@ -19,7 +19,7 @@ QVariant STPTItemModel::data(const QModelIndex &index,int role) const
         case 1:
             return STPTData.at(row).Latitude;
         case 2:
-            return STPTData.at(row).Longtitude;
+            return STPTData.at(row).Longitude;
         case 3:
             return STPTData.at(row).Altitude;
         case 4:
@@ -37,9 +37,8 @@ QVariant STPTItemModel::data(const QModelIndex &index,int role) const
                     return STPTData.at(row).Action;
             }
         case 5:
-            if(!STPTData.at(row).Target.isNull())
+            if (!STPTData.at(row).Target.isNull())
                 return STPTData.at(row).Target;
-
         }
     }
     return QVariant();
@@ -94,4 +93,9 @@ Qt::ItemFlags STPTItemModel::flags(const QModelIndex &index) const
 void STPTItemModel::appendRow(const STPTStruct rowContent)
 {
     STPTData.append(rowContent);
+}
+
+const STPTItemModel* STPTItemModel::getPtr()const
+{
+    return this;
 }
