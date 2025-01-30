@@ -11,7 +11,9 @@
 #include <QPointer>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui_NeoDP()),pDTC(nullptr)
+    : QMainWindow(parent),
+    ui(new Ui_NeoDP()),
+    pDTC(nullptr)
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);

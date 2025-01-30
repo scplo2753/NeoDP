@@ -1,0 +1,200 @@
+[
+    {
+        "Name": "SA-2",
+        "ALIC": 102,
+        "Code": "2",
+        "Child": [
+            {
+                "Name": "Fan Song",
+                "ALIC": 202,
+                "Code": "2T"
+            },
+            {
+                "Name": "Spoon Rest",
+                "ALIC": 402,
+                "Code": "2A"
+            }
+        ]
+    },
+    {
+        "Name": "SA-3",
+        "ALIC": 103,
+        "Code": "3",
+        "Child": [
+            {
+                "Name": "Low Blow",
+                "ALIC": 203,
+                "Code": "3T"
+            },
+            {
+                "Name": "FlatFace",
+                "ALIC": 403,
+                "Code": "3A"
+            }
+        ]
+    },
+    {
+        "Name": "SA-4",
+        "ALIC": 104,
+        "Code": "4",
+        "Child": [
+            {
+                "Name": "Pat Hand",
+                "ALIC": 204,
+                "Code": "4T"
+            },
+            {
+                "Name": "Long Track",
+                "ALIC": 404,
+                "Code": "4A"
+            }
+        ]
+    },
+    {
+        "Name": "SA-5",
+        "ALIC": 105,
+        "Code": "5",
+        "Child": [
+            {
+                "Name": "Square Pair",
+                "ALIC": 205,
+                "Code": "5T"
+            },
+            {
+                "Name": "Bar Lock",
+                "ALIC": 405,
+                "Code": "5A"
+            }
+        ]
+    },
+    {
+        "Name": "SA-6",
+        "ALIC": 106,
+        "Code": "6",
+        "Child": [
+            {
+                "Name": "Straight Flush",
+                "ALIC": 206,
+                "Code": "6T"
+            }
+        ]
+    },
+    {
+        "Name": "SA-8",
+        "ALIC": 608,
+        "Code": "8"
+    },
+    {
+        "Name": "Dog Ear",
+        "ALIC": 609,
+        "Code": "D"
+    },
+    {
+        "Name": "SA-10",
+        "ALIC": 110,
+        "Code": "10",
+        "Child": [
+            {
+                "Name": "Flap Lid",
+                "ALIC": 210,
+                "Code": "10T"
+            },
+            {
+                "Name": "Big Bird",
+                "ALIC": 410,
+                "Code": "10A"
+            }
+        ]
+    },
+    {
+        "Name": "SA-11",
+        "ALIC": 111,
+        "Code": "11",
+        "Child": [
+            {
+                "Name": "Fire Dome",
+                "ALIC": 211,
+                "Code": "11T"
+            },
+            {
+                "Name": "Snow Drift",
+                "ALIC": 411,
+                "Code": "11A"
+            }
+        ]
+    },
+    {
+        "Name": "Scrum Half",
+        "ALIC": 615,
+        "Code": 15
+    },
+    {
+        "Name": "SA-17",
+        "ALIC": 117,
+        "Code": "17",
+        "Child": [
+            {
+                "Name": "Chair Back",
+                "ALIC": 217,
+                "Code": "17T"
+            },
+            {
+                "Name": "Snow Drift",
+                "ALIC": 417,
+                "Code": "17A"
+            }
+        ]
+    },
+    {
+        "Name": "Hot Shot",
+        "ALIC": 619,
+        "Code": 19
+    },
+    {
+        "Name": "AN/MPQ-53",
+        "ALIC": 693,
+        "Code": "P"
+    },
+    {
+        "Name": "Hawk",
+        "ALIC": 130,
+        "Code": "H",
+        "Child": [
+            {
+                "Name": "AN/MPQ-46",
+                "ALIC": 230,
+                "Code": "HT"
+            },
+            {
+                "Name": "AN/MPQ-50",
+                "ALIC": 430,
+                "Code": "HA"
+            }
+        ]
+    },
+    {
+        "Name": "Nike",
+        "ALIC": 696,
+        "Code": "N"
+    },
+    {
+        "Name": "Skyguard",
+        "ALIC": 695,
+        "Code": "SKY"
+    },
+    {
+        "Name": "AAA",
+        "ALIC": 801,
+        "Code": "AAA"
+    },
+    {
+        "Name": "Search",
+        "ALIC": 801,
+        "Code": "S"
+    },
+    {
+        "Name": "Unknow",
+        "ALIC": 99,
+        "Code": "U"
+    }
+]

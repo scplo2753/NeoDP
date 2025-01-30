@@ -10,6 +10,7 @@ SOURCES += \
     $$files(src/Common/*.cpp) \
     $$files(src/DTC/*.cpp) \
     src/DTC/harmitemmodel.cpp \
+    src/DTC/harmsectionmanager.cpp \
     src/DTC/stptsortfilterproxymodel.cpp
 
 HEADERS += \
@@ -18,6 +19,7 @@ HEADERS += \
     $$files(src/DTC/*.h) \
     src/DTC/STPTMap.h \
     src/DTC/harmitemmodel.h \
+    src/DTC/harmsectionmanager.h \
     src/DTC/stptsortfilterproxymodel.h
 
 

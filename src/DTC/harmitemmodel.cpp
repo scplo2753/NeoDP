@@ -1,50 +1,58 @@
 #include "HarmItemModel.h"
 
 HarmItemModel::HarmItemModel(QObject *parent)
-    : QAbstractListModel{parent}
+    : QAbstractTableModel{parent}
 {
     initHARMData();
 }
 
 HarmItemModel::~HarmItemModel()
 {
-
 }
 
-QVariant HarmItemModel::data(const QModelIndex &index,int role) const
+QVariant HarmItemModel::data(const QModelIndex &index, int role) const
 {
-    if(!index.isValid())
+    if (!index.isValid())
         return QVariant();
-    if(role==Qt::DisplayRole)
+    if (role == Qt::DisplayRole || role == Qt::EditRole)
     {
-        int row=index.row();
-        if(index.column()==0)
-            return HARMKeys.at(row);
-        if(index.column()==1)
-            return HARMData.value(HARMKeys.at(row));
+        const int row = index.row();
+        const int column = index.column();
+        QString key = HARMKeys.at(row);
+        switch (column)
+        {
+        case 0:
+            return key;
+        case 1:
+            return HARMData.value(key);
+        }
     }
     return QVariant();
 }
 
 int HarmItemModel::rowCount(const QModelIndex &parent) const
 {
+    if (parent.isValid())
+        return 0;
     return HARMData.size();
 }
 
 int HarmItemModel::columnCount(const QModelIndex &parent) const
 {
+    if (parent.isValid())
+        return 0;
     return 2;
 }
 
 Qt::ItemFlags HarmItemModel::flags(const QModelIndex &index) const
 {
-    int column=index.column();
-    if(column==1)
-        return QAbstractItemModel::flags(index)|Qt::ItemIsEditable;
-    return QAbstractItemModel::flags(index)|Qt::ItemIsEnabled;
+    int column = index.column();
+    if (column == 1)
+        return QAbstractItemModel::flags(index) | Qt::ItemIsEditable;
+    return QAbstractItemModel::flags(index) | Qt::ItemIsEnabled;
 }
 
-const HarmItemModel* HarmItemModel::getHarmItemModelptr() const
+const HarmItemModel *HarmItemModel::getHarmItemModelptr() const
 {
     return this;
 }

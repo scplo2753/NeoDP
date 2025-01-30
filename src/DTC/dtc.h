@@ -3,6 +3,7 @@
 
 #include "stptitemmodel.h"
 #include "stptsortfilterproxymodel.h"
+#include "harmsectionmanager.h"
 #include "harmitemmodel.h"
 #include "ui_NeoDP.h"
 #include <QSettings>
@@ -11,11 +12,11 @@
 #include <QStringList>
 #include <QStandardItemModel>
 
-class DTC:public QObject
+class DTC : public QObject
 {
     Q_OBJECT
 public:
-    explicit DTC(Ui_NeoDP *ui,QObject *parent=nullptr);
+    explicit DTC(Ui_NeoDP *ui, QObject *parent = nullptr);
     ~DTC();
 
 private:
@@ -27,12 +28,14 @@ private:
     STPTSortFilterProxyModel *STPTProxyModel;
     QStringList STPTKeys;
 
+    HARMSectionManager *HarmManager;
+
     void InitSTPTSection();
 
 private slots:
-    void STPTPuButtonClicked(bool checked=false);
-    void STPTsubInsPuButtonClicked(bool checked=false);
-    void STPTsubLinesPuButtonClicked(bool check=false);
+    void STPTPuButtonClicked(bool checked = false);
+    void STPTsubInsPuButtonClicked(bool checked = false);
+    void STPTsubLinesPuButtonClicked(bool check = false);
     void STPTsubPPTsPuButtonClicked();
     void STPTsubWPNTPuButtonClicked();
 };

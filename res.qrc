@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>Resources/4.37.6/4_37_6DefaultDTC.ini</file>
         <file>Resources/4.37.6/STPTs.ini</file>
+        <file>Resources/ALIC.json</file>
     </qresource>
 </RCC>
