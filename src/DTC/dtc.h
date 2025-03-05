@@ -4,7 +4,6 @@
 #include "stptitemmodel.h"
 #include "stptsortfilterproxymodel.h"
 #include "harmsectionmanager.h"
-#include "harmitemmodel.h"
 #include "ui_NeoDP.h"
 #include <QSettings>
 #include <QVector>

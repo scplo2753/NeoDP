@@ -9,7 +9,6 @@ SOURCES += \
     $$files($$PWD/src/*.cpp) \
     $$files(src/Common/*.cpp) \
     $$files(src/DTC/*.cpp) \
-    src/DTC/harmitemmodel.cpp \
     src/DTC/harmsectionmanager.cpp \
     src/DTC/jsonreader.cpp \
     src/DTC/harmlistdialog.cpp \
@@ -20,7 +19,6 @@ HEADERS += \
     $$files(src/Common/*.h) \
     $$files(src/DTC/*.h) \
     src/DTC/STPTMap.h \
-    src/DTC/harmitemmodel.h \
     src/DTC/harmsectionmanager.h \
     src/DTC/jsonreader.h \
     src/DTC/harmlistdialog.h \
