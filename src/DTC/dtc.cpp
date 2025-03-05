@@ -64,14 +64,16 @@ void DTC::STPTPuButtonClicked(bool checked)
     ui->DockSTPTWidget->show();
 }
 
-void DTC::STPTsubInsPuButtonClicked(bool check)
+void DTC::STPTsubInsPuButtonClicked(bool checked)
 {
+    Q_UNUSED(checked)
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
     STPTProxyModel->setFilterRegularExpression("^target");
 }
 
-void DTC::STPTsubLinesPuButtonClicked(bool check)
+void DTC::STPTsubLinesPuButtonClicked(bool checked)
 {
+    Q_UNUSED(checked)
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
     STPTProxyModel->setFilterRegularExpression("^lineSTPT");
 }

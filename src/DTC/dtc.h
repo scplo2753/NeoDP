@@ -35,7 +35,7 @@ private:
 private slots:
     void STPTPuButtonClicked(bool checked = false);
     void STPTsubInsPuButtonClicked(bool checked = false);
-    void STPTsubLinesPuButtonClicked(bool check = false);
+    void STPTsubLinesPuButtonClicked(bool checked = false);
     void STPTsubPPTsPuButtonClicked();
     void STPTsubWPNTPuButtonClicked();
     

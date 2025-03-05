@@ -1,200 +1,200 @@
 [
     {
         "Name": "SA-2",
-        "ALIC": 102,
+        "ALIC": "0102",
         "Code": "2",
         "Child": [
             {
                 "Name": "Fan Song",
-                "ALIC": 202,
+                "ALIC": "0202",
                 "Code": "2T"
             },
             {
                 "Name": "Spoon Rest",
-                "ALIC": 402,
+                "ALIC": "0402",
                 "Code": "2A"
             }
         ]
     },
     {
         "Name": "SA-3",
-        "ALIC": 103,
+        "ALIC": "0103",
         "Code": "3",
         "Child": [
             {
                 "Name": "Low Blow",
-                "ALIC": 203,
+                "ALIC": "0203",
                 "Code": "3T"
             },
             {
                 "Name": "FlatFace",
-                "ALIC": 403,
+                "ALIC": "0403",
                 "Code": "3A"
             }
         ]
     },
     {
         "Name": "SA-4",
-        "ALIC": 104,
+        "ALIC": "0104",
         "Code": "4",
         "Child": [
             {
                 "Name": "Pat Hand",
-                "ALIC": 204,
+                "ALIC": "0204",
                 "Code": "4T"
             },
             {
                 "Name": "Long Track",
-                "ALIC": 404,
+                "ALIC": "0404",
                 "Code": "4A"
             }
         ]
     },
     {
         "Name": "SA-5",
-        "ALIC": 105,
+        "ALIC": "0105",
         "Code": "5",
         "Child": [
             {
                 "Name": "Square Pair",
-                "ALIC": 205,
+                "ALIC": "0205",
                 "Code": "5T"
             },
             {
                 "Name": "Bar Lock",
-                "ALIC": 405,
+                "ALIC": "0405",
                 "Code": "5A"
             }
         ]
     },
     {
         "Name": "SA-6",
-        "ALIC": 106,
+        "ALIC": "0106",
         "Code": "6",
         "Child": [
             {
                 "Name": "Straight Flush",
-                "ALIC": 206,
+                "ALIC": "0206",
                 "Code": "6T"
             }
         ]
     },
     {
         "Name": "SA-8",
-        "ALIC": 608,
+        "ALIC": "0608",
         "Code": "8"
     },
     {
         "Name": "Dog Ear",
-        "ALIC": 609,
+        "ALIC": "0609",
         "Code": "D"
     },
     {
         "Name": "SA-10",
-        "ALIC": 110,
+        "ALIC": "0110",
         "Code": "10",
         "Child": [
             {
                 "Name": "Flap Lid",
-                "ALIC": 210,
+                "ALIC": "0210",
                 "Code": "10T"
             },
             {
                 "Name": "Big Bird",
-                "ALIC": 410,
+                "ALIC": "0410",
                 "Code": "10A"
             }
         ]
     },
     {
         "Name": "SA-11",
-        "ALIC": 111,
+        "ALIC": "0111",
         "Code": "11",
         "Child": [
             {
                 "Name": "Fire Dome",
-                "ALIC": 211,
+                "ALIC": "0211",
                 "Code": "11T"
             },
             {
                 "Name": "Snow Drift",
-                "ALIC": 411,
+                "ALIC": "0411",
                 "Code": "11A"
             }
         ]
     },
     {
         "Name": "Scrum Half",
-        "ALIC": 615,
+        "ALIC": "0615",
         "Code": 15
     },
     {
         "Name": "SA-17",
-        "ALIC": 117,
+        "ALIC": "0117",
         "Code": "17",
         "Child": [
             {
                 "Name": "Chair Back",
-                "ALIC": 217,
+                "ALIC": "0217",
                 "Code": "17T"
             },
             {
                 "Name": "Snow Drift",
-                "ALIC": 417,
+                "ALIC": "0417",
                 "Code": "17A"
             }
         ]
     },
     {
         "Name": "Hot Shot",
-        "ALIC": 619,
+        "ALIC": "0619",
         "Code": 19
     },
     {
         "Name": "AN/MPQ-53",
-        "ALIC": 693,
+        "ALIC": "0693",
         "Code": "P"
     },
     {
         "Name": "Hawk",
-        "ALIC": 130,
+        "ALIC": "0130",
         "Code": "H",
         "Child": [
             {
                 "Name": "AN/MPQ-46",
-                "ALIC": 230,
+                "ALIC": "0230",
                 "Code": "HT"
             },
             {
                 "Name": "AN/MPQ-50",
-                "ALIC": 430,
+                "ALIC": "0430",
                 "Code": "HA"
             }
         ]
     },
     {
         "Name": "Nike",
-        "ALIC": 696,
+        "ALIC": "0696",
         "Code": "N"
     },
     {
         "Name": "Skyguard",
-        "ALIC": 695,
+        "ALIC": "0695",
         "Code": "SKY"
     },
     {
         "Name": "AAA",
-        "ALIC": 801,
+        "ALIC": "0692",
         "Code": "AAA"
     },
     {
         "Name": "Search",
-        "ALIC": 801,
+        "ALIC": "0801",
         "Code": "S"
     },
     {
         "Name": "Unknow",
-        "ALIC": 99,
+        "ALIC": "0099",
         "Code": "U"
     }
 ]

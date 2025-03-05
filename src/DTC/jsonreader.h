@@ -9,7 +9,7 @@
 struct ALIC_Struct
 {
     QString Name;
-    int ALIC_Code;
+    QString ALIC_Code;
     QString Code;
     QSharedPointer<QHash<QString, ALIC_Struct>> Child = nullptr;
 };
@@ -19,8 +19,9 @@ class JsonReader
 public:
     JsonReader();
 
-    QSharedPointer<QHash<QString, ALIC_Struct>> getAlicHash();
-    void keys_debug();
+    const QSharedPointer<QHash<QString, ALIC_Struct>> getAlicHash() const;
+
+    const QHash<QString,QString> &getMap_ALIC_Name() const;
 
     QVector<QString> getKeys();
 
@@ -29,10 +30,12 @@ public:
 private:
     QByteArray loadFile(const QString &file_path);
     void parseJson(const QString &file_path);
+    void initAtoN(QString ALIC,QString Name);
     void toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &root, const QJsonObject &samObject);
 
     QString file_path;
     QVariantMap JsonMap;
+    QHash<QString, QString> map_ALIC_Name;
     QSharedPointer<QHash<QString, ALIC_Struct>> AlicHash=QSharedPointer<QHash<QString,ALIC_Struct>>(new QHash<QString,ALIC_Struct>);
 };
 
