@@ -7,6 +7,7 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
       Mode_ComBox(nullptr),
       SubMode_ComBox(nullptr),
       TerTable_ComBox(nullptr),
+      JsonReaderObj(new JsonReader()),
     HarmModel(new HarmItemModel())
 {
     TerTable_ComBox = ui->TerTable_comBox;

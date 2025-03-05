@@ -38,6 +38,8 @@ private slots:
     void STPTsubLinesPuButtonClicked(bool check = false);
     void STPTsubPPTsPuButtonClicked();
     void STPTsubWPNTPuButtonClicked();
+    
+    void Dock_Harm_pButClicked();
 };
 
 #endif // DTC_H

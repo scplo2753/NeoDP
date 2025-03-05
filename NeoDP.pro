@@ -12,6 +12,7 @@ SOURCES += \
     src/DTC/harmitemmodel.cpp \
     src/DTC/harmsectionmanager.cpp \
     src/DTC/jsonreader.cpp \
+    src/DTC/harmlistdialog.cpp \
     src/DTC/stptsortfilterproxymodel.cpp
 
 HEADERS += \
@@ -22,6 +23,7 @@ HEADERS += \
     src/DTC/harmitemmodel.h \
     src/DTC/harmsectionmanager.h \
     src/DTC/jsonreader.h \
+    src/DTC/harmlistdialog.h \
     src/DTC/stptsortfilterproxymodel.h
 
 

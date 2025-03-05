@@ -1,14 +1,5 @@
 #include "MainWindow.h"
 #include "ui_NeoDP.h"
-#include "DTC/dtc.h"
-#include "DTC/stptsortfilterproxymodel.h"
-#include <QMessageBox>
-#include <QToolBar>
-#include <QLabel>
-#include <QTableView>
-#include <QStandardItemModel>
-#include <QRegularExpression>
-#include <QPointer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),

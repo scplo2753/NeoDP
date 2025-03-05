@@ -1,7 +1,7 @@
 #include "jsonreader.h"
 #include <QJsonArray>
 
-JsonReader::JsonReader() : file_path("://ALIC.json")
+JsonReader::JsonReader() : file_path(":/Resources/ALIC.json")
 {
     parseJson(file_path);
 }

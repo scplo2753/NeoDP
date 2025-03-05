@@ -22,6 +22,8 @@ DTC::DTC(Ui_NeoDP *ui, QObject *parent)
     connect(ui->STPT_sub_Lines_pBut, &QPushButton::clicked, this, &DTC::STPTsubLinesPuButtonClicked);
     connect(ui->STPT_sub_PPTs_pBut, &QPushButton::clicked, this, &DTC::STPTsubPPTsPuButtonClicked);
     connect(ui->STPT_sub_WPNT_pBut, &QPushButton::clicked, this, &DTC::STPTsubWPNTPuButtonClicked);
+
+    connect(ui->Dock_HARM_pBut, &QPushButton::clicked, this, &DTC::Dock_Harm_pButClicked);
 }
 
 DTC::~DTC()
@@ -84,4 +86,9 @@ void DTC::STPTsubWPNTPuButtonClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
     STPTProxyModel->setFilterRegularExpression("^wpntarget");
+}
+
+void DTC::Dock_Harm_pButClicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->HARMWidget);
 }

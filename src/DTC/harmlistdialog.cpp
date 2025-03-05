@@ -26,6 +26,7 @@ void HarmListDialog::setupDialog()
 void HarmListDialog::setupTree()
 {
     SAM_System_Tree->setColumnCount(1);
+    SAM_System_Tree->setHeaderHidden(true); 
     for (auto key : JsonKeys)
     {
         SAM_System_Tree->addTopLevelItem(importItem(key));

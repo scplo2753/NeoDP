@@ -2,6 +2,7 @@
 #include "ui_NeoDP.h"
 #include "DTC/dtc.h"
 #include "DTC/stptsortfilterproxymodel.h"
+
 #include <QSpinBox>
 #include <QFontComboBox>
 #include <QMainWindow>

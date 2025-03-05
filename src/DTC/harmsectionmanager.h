@@ -1,9 +1,11 @@
 #pragma once
+#include "harmitemmodel.h"
+#include "ui_NeoDP.h"
+#include "jsonreader.h"
+
 #include <QObject>
 #include <QComboBox>
 #include <QSortFilterProxyModel>
-#include "ui_NeoDP.h"
-#include "harmitemmodel.h"
 
 class HARMSectionManager : public QObject
 {
@@ -19,5 +21,6 @@ private:
     QComboBox *TerTable_ComBox;
 
     HarmItemModel *HarmModel;
+    JsonReader *JsonReaderObj;
 signals:
 };
