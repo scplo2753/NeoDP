@@ -43,6 +43,7 @@ void JsonReader::parseJson(const QString &file_path)
 inline void JsonReader::initAtoN(QString ALIC,QString Name)
 {
     map_ALIC_Name[ALIC]=Name;
+    map_Name_ALIC[Name]=ALIC;
 }
 
 void JsonReader::toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &root, const QJsonObject &samObject)
@@ -86,4 +87,9 @@ const QSharedPointer<QHash<QString, ALIC_Struct>> JsonReader::getAlicHash() cons
 const QHash<QString,QString> &JsonReader::getMap_ALIC_Name() const
 {
     return map_ALIC_Name;
+}
+
+const QHash<QString,QString> &JsonReader::getMap_Name_ALIC() const
+{
+    return map_Name_ALIC;
 }

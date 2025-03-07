@@ -23,6 +23,7 @@ private:
 
     QHash<QString,QString> HARM_ALIC;
     QHash<QString,QString> Map_ALIC_Name;
+    QHash<QString,QString> Map_Name_ALIC;
 
     Ui_NeoDP *ui;
 
@@ -62,4 +63,6 @@ private:
 
     JsonReader *JsonReaderObj;
     HarmListDialog *HarmListDialogObj;
+
+    QHash<QPushButton *, QPair<QLabel*, QString>> ButtonToThreat;
 };

@@ -16,6 +16,7 @@ class HarmListDialog : public QDialog
 public:
     HarmListDialog(const QString &title, JsonReader *JsonReader_ptr, QWidget *parent);
     QString getSelectedKey() const { return selectedKey; }
+    QString getSelectedALIC() const { return selectedALIC; }
 
 private slots:
     void accept();
@@ -31,6 +32,7 @@ private:
     QVector<QString> JsonKeys;
 
     QString selectedKey;
+    QString selectedALIC;
 
     void setupDialog();
     void setupTree();

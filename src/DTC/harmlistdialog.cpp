@@ -60,6 +60,8 @@ void HarmListDialog::onSelectionChanged()
     if (item)
     {
         selectedKey=item->text(0);
+        QHash<QString,QString> map_ALIC_Name=JsonReaderObj->getMap_ALIC_Name();
+        selectedALIC=map_ALIC_Name[selectedKey];
         buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
     }
     else
@@ -71,11 +73,6 @@ void HarmListDialog::onSelectionChanged()
 
 void HarmListDialog::accept()
 {
-    QTreeWidgetItem *item = SAM_System_Tree->currentItem();
-    if (item)
-    {
-        selectedKey = item->text(0);
-    }
     QDialog::accept();
 }
 

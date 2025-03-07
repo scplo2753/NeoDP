@@ -23,6 +23,8 @@ public:
 
     const QHash<QString,QString> &getMap_ALIC_Name() const;
 
+    const QHash<QString, QString> &getMap_Name_ALIC() const;
+
     QVector<QString> getKeys();
 
     QVector<QString> getChild(QString key);
@@ -36,6 +38,7 @@ private:
     QString file_path;
     QVariantMap JsonMap;
     QHash<QString, QString> map_ALIC_Name;
+    QHash<QString, QString> map_Name_ALIC;
     QSharedPointer<QHash<QString, ALIC_Struct>> AlicHash=QSharedPointer<QHash<QString,ALIC_Struct>>(new QHash<QString,ALIC_Struct>);
 };
 
