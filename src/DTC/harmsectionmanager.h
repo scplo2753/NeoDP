@@ -1,6 +1,7 @@
 #pragma once
 #include "ui_NeoDP.h"
 #include "jsonreader.h"
+#include "harmlistdialog.h"
 
 #include <QObject>
 #include <QComboBox>
@@ -12,12 +13,14 @@ class HARMSectionManager : public QObject
 public:
     explicit HARMSectionManager(Ui_NeoDP *ui,QObject *parent = nullptr);
 
+    protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     void init_DockWidget();
     void initHarmData();
-    void loadHarmData();
-    
+    void setupEventFilters();
+
     QHash<QString,QString> HARM_ALIC;
     QHash<QString,QString> Map_ALIC_Name;
 
@@ -58,6 +61,5 @@ private:
     QPushButton *Threat23_Button;
 
     JsonReader *JsonReaderObj;
-
-signals:
+    HarmListDialog *HarmListDialogObj;
 };

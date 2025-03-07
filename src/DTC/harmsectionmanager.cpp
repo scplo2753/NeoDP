@@ -1,5 +1,4 @@
 #include "harmsectionmanager.h"
-#include "ui_NeoDP.h"
 
 HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
     : QObject{parent},
@@ -7,9 +6,13 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
       Mode_ComBox(nullptr),
       SubMode_ComBox(nullptr),
       TerTable_ComBox(nullptr),
-      JsonReaderObj(new JsonReader())
+      HarmListDialogObj(nullptr),
+      JsonReaderObj(new JsonReader)
 {
+  QWidget *parentWidget = qobject_cast<QWidget *>(parent);
+
   Map_ALIC_Name = JsonReaderObj->getMap_ALIC_Name();
+  HarmListDialogObj = new HarmListDialog(tr("Harms"), JsonReaderObj, parentWidget);
 
   TerTable_ComBox = ui->TerTable_comBox;
   QStringList TerTableItems = {"1", "2", "3", "0"};
@@ -27,30 +30,31 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
   Threat01_Label = ui->lbl_TrTab01;
   Threat02_Label = ui->lbl_TrTab02;
   Threat03_Label = ui->lbl_TrTab03;
-  Threat00_Button=ui->btn_TrTab00;
-  Threat01_Button=ui->btn_TrTab01;
-  Threat02_Button=ui->btn_TrTab02;
-  Threat03_Button=ui->btn_TrTab03;
+  Threat00_Button = ui->btn_TrTab00;
+  Threat01_Button = ui->btn_TrTab01;
+  Threat02_Button = ui->btn_TrTab02;
+  Threat03_Button = ui->btn_TrTab03;
 
   Threat10_Label = ui->lbl_TrTab10;
   Threat11_Label = ui->lbl_TrTab11;
   Threat12_Label = ui->lbl_TrTab12;
   Threat13_Label = ui->lbl_TrTab13;
-  Threat10_Button=ui->btn_TrTab10;
-  Threat11_Button=ui->btn_TrTab11;
-  Threat12_Button=ui->btn_TrTab12;
-  Threat13_Button=ui->btn_TrTab13;
+  Threat10_Button = ui->btn_TrTab10;
+  Threat11_Button = ui->btn_TrTab11;
+  Threat12_Button = ui->btn_TrTab12;
+  Threat13_Button = ui->btn_TrTab13;
 
   Threat20_Label = ui->lbl_TrTab20;
   Threat21_Label = ui->lbl_TrTab21;
   Threat22_Label = ui->lbl_TrTab22;
   Threat23_Label = ui->lbl_TrTab23;
-  Threat20_Button=ui->btn_TrTab20;
-  Threat21_Button=ui->btn_TrTab21;
-  Threat22_Button=ui->btn_TrTab22;
-  Threat23_Button=ui->btn_TrTab23;
+  Threat20_Button = ui->btn_TrTab20;
+  Threat21_Button = ui->btn_TrTab21;
+  Threat22_Button = ui->btn_TrTab22;
+  Threat23_Button = ui->btn_TrTab23;
 
   init_DockWidget();
+  setupEventFilters();
 }
 
 void HARMSectionManager::init_DockWidget()
@@ -107,6 +111,28 @@ void HARMSectionManager::initHarmData()
   HARM_ALIC["TER"] = "0";
 }
 
-void HARMSectionManager::loadHarmData()
+void HARMSectionManager::setupEventFilters()
 {
+  QVector<QPushButton *> buttons = {Threat00_Button, Threat01_Button, Threat02_Button, Threat03_Button,
+                                    Threat10_Button, Threat11_Button, Threat12_Button, Threat13_Button,
+                                    Threat20_Button, Threat21_Button, Threat22_Button, Threat23_Button};
+  for (auto button : buttons)
+  {
+    button->installEventFilter(this);
+  }
+}
+
+bool HARMSectionManager::eventFilter(QObject *obj, QEvent *event)
+{
+  if (event->type() == QEvent::MouseButtonPress)
+  {
+    QPushButton *button = qobject_cast<QPushButton *>(obj);
+    if (button)
+    {
+      if (HarmListDialogObj->exec() == QDialog::Accepted)
+        button->setText(HarmListDialogObj->getSelectedKey());
+      return true;
+    }
+  }
+  return QObject::eventFilter(obj, event);
 }

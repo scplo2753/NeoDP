@@ -8,13 +8,19 @@
 #include <QDialogButtonBox>
 #include <QGridLayout>
 #include <QTreeWidget>
+#include <QPushButton>
 
 class HarmListDialog : public QDialog
 {
     Q_OBJECT
 public:
-    HarmListDialog(const QString &title,JsonReader *JsonReader_ptr, QWidget *parent);
+    HarmListDialog(const QString &title, JsonReader *JsonReader_ptr, QWidget *parent);
+    QString getSelectedKey() const { return selectedKey; }
 
+private slots:
+    void accept();
+    void reject();
+    void onSelectionChanged();
 
 private:
     QTreeWidget *SAM_System_Tree;
@@ -24,9 +30,10 @@ private:
     JsonReader *JsonReaderObj;
     QVector<QString> JsonKeys;
 
+    QString selectedKey;
+
     void setupDialog();
     void setupTree();
-    void setupButtonBox();
     QTreeWidgetItem *importItem(QString key);
 };
 

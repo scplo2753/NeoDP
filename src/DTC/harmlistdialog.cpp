@@ -1,13 +1,13 @@
 #include "harmlistdialog.h"
 
-HarmListDialog::HarmListDialog(const QString &title, JsonReader *JsonReader_ptr, QWidget *parent) : 
-QDialog(parent), JsonReaderObj(JsonReader_ptr)
+HarmListDialog::HarmListDialog(const QString &title, JsonReader *JsonReader_ptr, QWidget *parent) : QDialog(parent), JsonReaderObj(JsonReader_ptr)
 {
     setWindowTitle(title);
 
     JsonKeys = JsonReaderObj->getKeys();
 
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     SAM_System_Tree = new QTreeWidget();
 
     mainLayout = new QGridLayout();
@@ -20,17 +20,21 @@ QDialog(parent), JsonReaderObj(JsonReader_ptr)
 void HarmListDialog::setupDialog()
 {
     setupTree();
-    setupButtonBox();
 }
 
 void HarmListDialog::setupTree()
 {
     SAM_System_Tree->setColumnCount(1);
-    SAM_System_Tree->setHeaderHidden(true); 
+    SAM_System_Tree->setHeaderHidden(true);
     for (auto key : JsonKeys)
     {
         SAM_System_Tree->addTopLevelItem(importItem(key));
     }
+
+    /*inital slots*/
+    connect(SAM_System_Tree, &QTreeWidget::itemSelectionChanged, this, &HarmListDialog::onSelectionChanged);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &HarmListDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &HarmListDialog::reject);
 }
 
 QTreeWidgetItem *HarmListDialog::importItem(QString key)
@@ -50,6 +54,33 @@ QTreeWidgetItem *HarmListDialog::importItem(QString key)
     return item;
 }
 
-void HarmListDialog::setupButtonBox()
+void HarmListDialog::onSelectionChanged()
 {
+    QTreeWidgetItem *item = SAM_System_Tree->currentItem();
+    if (item)
+    {
+        selectedKey=item->text(0);
+        buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+    }
+    else
+    {
+        selectedKey.clear();
+        buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+}
+
+void HarmListDialog::accept()
+{
+    QTreeWidgetItem *item = SAM_System_Tree->currentItem();
+    if (item)
+    {
+        selectedKey = item->text(0);
+    }
+    QDialog::accept();
+}
+
+void HarmListDialog::reject()
+{
+    selectedKey.clear();
+    QDialog::reject();
 }
