@@ -40,10 +40,10 @@ void JsonReader::parseJson(const QString &file_path)
     }
 }
 
-inline void JsonReader::initAtoN(QString ALIC,QString Name)
+inline void JsonReader::initAtoN(QString ALIC, QString Name)
 {
-    map_ALIC_Name[ALIC]=Name;
-    map_Name_ALIC[Name]=ALIC;
+    map_ALIC_Name[ALIC] = Name;
+    map_Name_ALIC[Name] = ALIC;
 }
 
 void JsonReader::toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &root, const QJsonObject &samObject)
@@ -52,7 +52,7 @@ void JsonReader::toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &r
     temp.Name = samObject["Name"].toString();
     temp.Code = samObject["Code"].toString();
     temp.ALIC_Code = samObject["ALIC"].toString();
-    initAtoN(temp.ALIC_Code,temp.Name);
+    initAtoN(temp.ALIC_Code, temp.Name);
     if (!samObject["Child"].isNull())
     {
         temp.Child = QSharedPointer<QHash<QString, ALIC_Struct>>(new QHash<QString, ALIC_Struct>());
@@ -73,7 +73,8 @@ QVector<QString> JsonReader::getChild(QString key)
 {
     QVector<QString> childKeys;
     const auto &item = AlicHash->value(key);
-    if (item.Child) {
+    if (item.Child)
+    {
         childKeys = item.Child->keys().toVector();
     }
     return childKeys;
@@ -84,12 +85,12 @@ const QSharedPointer<QHash<QString, ALIC_Struct>> JsonReader::getAlicHash() cons
     return AlicHash;
 }
 
-const QHash<QString,QString> &JsonReader::getMap_ALIC_Name() const
+const QHash<QString, QString> &JsonReader::getMap_ALIC_Name() const
 {
     return map_ALIC_Name;
 }
 
-const QHash<QString,QString> &JsonReader::getMap_Name_ALIC() const
+const QHash<QString, QString> &JsonReader::getMap_Name_ALIC() const
 {
     return map_Name_ALIC;
 }

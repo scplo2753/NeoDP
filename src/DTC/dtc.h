@@ -37,7 +37,7 @@ private slots:
     void STPTsubLinesPuButtonClicked(bool checked = false);
     void STPTsubPPTsPuButtonClicked();
     void STPTsubWPNTPuButtonClicked();
-    
+
     void Dock_Harm_pButClicked();
 };
 

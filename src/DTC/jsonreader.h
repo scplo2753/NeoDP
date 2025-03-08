@@ -21,7 +21,7 @@ public:
 
     const QSharedPointer<QHash<QString, ALIC_Struct>> getAlicHash() const;
 
-    const QHash<QString,QString> &getMap_ALIC_Name() const;
+    const QHash<QString, QString> &getMap_ALIC_Name() const;
 
     const QHash<QString, QString> &getMap_Name_ALIC() const;
 
@@ -32,14 +32,14 @@ public:
 private:
     QByteArray loadFile(const QString &file_path);
     void parseJson(const QString &file_path);
-    void initAtoN(QString ALIC,QString Name);
+    void initAtoN(QString ALIC, QString Name);
     void toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &root, const QJsonObject &samObject);
 
     QString file_path;
     QVariantMap JsonMap;
     QHash<QString, QString> map_ALIC_Name;
     QHash<QString, QString> map_Name_ALIC;
-    QSharedPointer<QHash<QString, ALIC_Struct>> AlicHash=QSharedPointer<QHash<QString,ALIC_Struct>>(new QHash<QString,ALIC_Struct>);
+    QSharedPointer<QHash<QString, ALIC_Struct>> AlicHash = QSharedPointer<QHash<QString, ALIC_Struct>>(new QHash<QString, ALIC_Struct>);
 };
 
 #endif // JSONREADER_H

@@ -12,7 +12,7 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
   QWidget *parentWidget = qobject_cast<QWidget *>(parent);
 
   Map_ALIC_Name = JsonReaderObj->getMap_ALIC_Name();
-  Map_Name_ALIC=JsonReaderObj->getMap_Name_ALIC();
+  Map_Name_ALIC = JsonReaderObj->getMap_Name_ALIC();
 
   HarmListDialogObj = new HarmListDialog(tr("Select an SAM system"), JsonReaderObj, parentWidget);
 
@@ -55,18 +55,18 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
   Threat22_Button = ui->btn_TrTab22;
   Threat23_Button = ui->btn_TrTab23;
 
-  ButtonToThreat= {{Threat00_Button, QPair<QLabel*, QString>(Threat00_Label, "THREAT 0 0")},
-                     {Threat01_Button, QPair<QLabel*, QString>(Threat01_Label, "THREAT 0 1")},
-                     {Threat02_Button, QPair<QLabel*, QString>(Threat02_Label, "THREAT 0 2")},
-                     {Threat03_Button, QPair<QLabel*, QString>(Threat03_Label, "THREAT 0 3")},
-                     {Threat10_Button, QPair<QLabel*, QString>(Threat10_Label, "THREAT 1 0")},
-                     {Threat11_Button, QPair<QLabel*, QString>(Threat11_Label, "THREAT 1 1")},
-                     {Threat12_Button, QPair<QLabel*, QString>(Threat12_Label, "THREAT 1 2")},
-                     {Threat13_Button, QPair<QLabel*, QString>(Threat13_Label, "THREAT 1 3")},
-                     {Threat20_Button, QPair<QLabel*, QString>(Threat20_Label, "THREAT 2 0")},
-                     {Threat21_Button, QPair<QLabel*, QString>(Threat21_Label, "THREAT 2 1")},
-                     {Threat22_Button, QPair<QLabel*, QString>(Threat22_Label, "THREAT 2 2")},
-                     {Threat23_Button, QPair<QLabel*, QString>(Threat23_Label, "THREAT 2 3")}};
+  ButtonToThreat = {{Threat00_Button, QPair<QLabel *, QString>(Threat00_Label, "THREAT 0 0")},
+                    {Threat01_Button, QPair<QLabel *, QString>(Threat01_Label, "THREAT 0 1")},
+                    {Threat02_Button, QPair<QLabel *, QString>(Threat02_Label, "THREAT 0 2")},
+                    {Threat03_Button, QPair<QLabel *, QString>(Threat03_Label, "THREAT 0 3")},
+                    {Threat10_Button, QPair<QLabel *, QString>(Threat10_Label, "THREAT 1 0")},
+                    {Threat11_Button, QPair<QLabel *, QString>(Threat11_Label, "THREAT 1 1")},
+                    {Threat12_Button, QPair<QLabel *, QString>(Threat12_Label, "THREAT 1 2")},
+                    {Threat13_Button, QPair<QLabel *, QString>(Threat13_Label, "THREAT 1 3")},
+                    {Threat20_Button, QPair<QLabel *, QString>(Threat20_Label, "THREAT 2 0")},
+                    {Threat21_Button, QPair<QLabel *, QString>(Threat21_Label, "THREAT 2 1")},
+                    {Threat22_Button, QPair<QLabel *, QString>(Threat22_Label, "THREAT 2 2")},
+                    {Threat23_Button, QPair<QLabel *, QString>(Threat23_Label, "THREAT 2 3")}};
 
   init_DockWidget();
   setupEventFilters();
@@ -148,10 +148,9 @@ bool HARMSectionManager::eventFilter(QObject *obj, QEvent *event)
       {
         button->setText(HarmListDialogObj->getSelectedKey());
         QString &ALIC = Map_Name_ALIC[HarmListDialogObj->getSelectedKey()];
-        QPair<QLabel*,QString> &ButtonNum=ButtonToThreat[button];
-        HARM_ALIC[ButtonNum.second]=ALIC;
+        QPair<QLabel *, QString> &ButtonNum = ButtonToThreat[button];
+        HARM_ALIC[ButtonNum.second] = ALIC;
         ButtonNum.first->setText(ALIC);
-        
       }
       return true;
     }

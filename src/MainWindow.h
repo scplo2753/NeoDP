@@ -12,7 +12,7 @@
 #include <QStandardItemModel>
 #include <QSortFilterProxyModel>
 
-class MainWindow: public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
@@ -26,5 +26,4 @@ private:
 
 private slots:
     void on_Exit_pBut_clicked();
-
 };

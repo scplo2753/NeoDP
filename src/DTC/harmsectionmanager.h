@@ -11,9 +11,9 @@ class HARMSectionManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit HARMSectionManager(Ui_NeoDP *ui,QObject *parent = nullptr);
+    explicit HARMSectionManager(Ui_NeoDP *ui, QObject *parent = nullptr);
 
-    protected:
+protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
@@ -21,9 +21,9 @@ private:
     void initHarmData();
     void setupEventFilters();
 
-    QHash<QString,QString> HARM_ALIC;
-    QHash<QString,QString> Map_ALIC_Name;
-    QHash<QString,QString> Map_Name_ALIC;
+    QHash<QString, QString> HARM_ALIC;
+    QHash<QString, QString> Map_ALIC_Name;
+    QHash<QString, QString> Map_Name_ALIC;
 
     Ui_NeoDP *ui;
 
@@ -64,5 +64,5 @@ private:
     JsonReader *JsonReaderObj;
     HarmListDialog *HarmListDialogObj;
 
-    QHash<QPushButton *, QPair<QLabel*, QString>> ButtonToThreat;
+    QHash<QPushButton *, QPair<QLabel *, QString>> ButtonToThreat;
 };

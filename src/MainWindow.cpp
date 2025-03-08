@@ -3,8 +3,8 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-    ui(new Ui_NeoDP()),
-    pDTC(nullptr)
+      ui(new Ui_NeoDP()),
+      pDTC(nullptr)
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);
