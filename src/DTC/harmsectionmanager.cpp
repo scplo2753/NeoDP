@@ -14,7 +14,7 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
   Map_ALIC_Name = JsonReaderObj->getMap_ALIC_Name();
   Map_Name_ALIC=JsonReaderObj->getMap_Name_ALIC();
 
-  HarmListDialogObj = new HarmListDialog(tr("Harms"), JsonReaderObj, parentWidget);
+  HarmListDialogObj = new HarmListDialog(tr("Select an SAM system"), JsonReaderObj, parentWidget);
 
   TerTable_ComBox = ui->TerTable_comBox;
   QStringList TerTableItems = {"1", "2", "3", "0"};

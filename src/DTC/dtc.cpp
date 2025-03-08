@@ -93,4 +93,5 @@ void DTC::STPTsubWPNTPuButtonClicked()
 void DTC::Dock_Harm_pButClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->HARMWidget);
+    ui->DockSTPTWidget->hide();
 }

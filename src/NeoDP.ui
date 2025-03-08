@@ -40,8 +40,11 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="locale">
+       <locale language="English" country="UnitedStates"/>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="STPTWidget">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
