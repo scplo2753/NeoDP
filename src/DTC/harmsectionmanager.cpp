@@ -3,9 +3,9 @@
 HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
     : QObject{parent},
       ui(ui),
-      Mode_ComBox(nullptr),
-      SubMode_ComBox(nullptr),
-      TerTable_ComBox(nullptr),
+      comBox_Mode(nullptr),
+      comBox_SubMode(nullptr),
+      comBox_TerTable(nullptr),
       JsonReaderObj(new JsonReader),
       HarmListDialogObj(nullptr)
 {
@@ -16,17 +16,17 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
 
   HarmListDialogObj = new HarmListDialog(tr("Select an SAM system"), JsonReaderObj, parentWidget);
 
-  TerTable_ComBox = ui->TerTable_comBox;
+  comBox_TerTable = ui->comBox_TerTable;
   QStringList TerTableItems = {"1", "2", "3", "0"};
-  TerTable_ComBox->addItems(TerTableItems);
+  comBox_TerTable->addItems(TerTableItems);
 
-  Mode_ComBox = ui->Mode_comBox;
+  comBox_Mode = ui->comBox_Mode;
   QStringList ModeItems = {"HAS", "POS"};
-  Mode_ComBox->addItems(ModeItems);
+  comBox_Mode->addItems(ModeItems);
 
-  SubMode_ComBox = ui->SubMode_comBox;
+  comBox_SubMode = ui->comBox_SubMode;
   QStringList SubModeItems = {"PB", "EOM", "RUK"};
-  SubMode_ComBox->addItems(SubModeItems);
+  comBox_SubMode->addItems(SubModeItems);
 
   Threat00_Label = ui->lbl_TrTab00;
   Threat01_Label = ui->lbl_TrTab01;
@@ -68,11 +68,37 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
                     {Threat22_Button, QPair<QLabel *, QString>(Threat22_Label, "THREAT 2 2")},
                     {Threat23_Button, QPair<QLabel *, QString>(Threat23_Label, "THREAT 2 3")}};
 
+  connect(comBox_Mode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &HARMSectionManager::on_Mode_ComBox_currentIndexChanged);
+  connect(comBox_SubMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &HARMSectionManager::on_SubMode_ComBox_currentIndexChanged);
+  connect(comBox_TerTable, &QComboBox::currentTextChanged, this, &HARMSectionManager::on_TerTable_ComBox_currentTextChanged);
+
   init_DockWidget();
   setupEventFilters();
 }
 
-void HARMSectionManager::init_DockWidget()
+inline void HARMSectionManager::initHarmData()
+{
+  HARM_ALIC["THREAT 0 0"] = "0202";
+  HARM_ALIC["THREAT 0 1"] = "0203";
+  HARM_ALIC["THREAT 0 2"] = "0204";
+  HARM_ALIC["THREAT 0 3"] = "0205";
+  HARM_ALIC["THREAT 0 4"] = "0210";
+  HARM_ALIC["THREAT 1 0"] = "0402";
+  HARM_ALIC["THREAT 1 1"] = "0403";
+  HARM_ALIC["THREAT 1 2"] = "0404";
+  HARM_ALIC["THREAT 1 3"] = "0405";
+  HARM_ALIC["THREAT 1 4"] = "0410";
+  HARM_ALIC["THREAT 2 0"] = "0106";
+  HARM_ALIC["THREAT 2 1"] = "0608";
+  HARM_ALIC["THREAT 2 2"] = "0111";
+  HARM_ALIC["THREAT 2 3"] = "0615";
+  HARM_ALIC["THREAT 2 4"] = "0117";
+  HARM_ALIC["MODE"] = "1";
+  HARM_ALIC["SUBMODE"] = "0";
+  HARM_ALIC["TER"] = "0";
+}
+
+inline void HARMSectionManager::init_DockWidget()
 {
   initHarmData();
 
@@ -102,28 +128,6 @@ void HARMSectionManager::init_DockWidget()
   Threat21_Button->setText(Map_ALIC_Name[HARM_ALIC["THREAT 2 1"]]);
   Threat22_Button->setText(Map_ALIC_Name[HARM_ALIC["THREAT 2 2"]]);
   Threat23_Button->setText(Map_ALIC_Name[HARM_ALIC["THREAT 2 3"]]);
-}
-
-void HARMSectionManager::initHarmData()
-{
-  HARM_ALIC["THREAT 0 0"] = "0202";
-  HARM_ALIC["THREAT 0 1"] = "0203";
-  HARM_ALIC["THREAT 0 2"] = "0204";
-  HARM_ALIC["THREAT 0 3"] = "0205";
-  HARM_ALIC["THREAT 0 4"] = "0210";
-  HARM_ALIC["THREAT 1 0"] = "0402";
-  HARM_ALIC["THREAT 1 1"] = "0403";
-  HARM_ALIC["THREAT 1 2"] = "0404";
-  HARM_ALIC["THREAT 1 3"] = "0405";
-  HARM_ALIC["THREAT 1 4"] = "0410";
-  HARM_ALIC["THREAT 2 0"] = "0106";
-  HARM_ALIC["THREAT 2 1"] = "0608";
-  HARM_ALIC["THREAT 2 2"] = "0111";
-  HARM_ALIC["THREAT 2 3"] = "0615";
-  HARM_ALIC["THREAT 2 4"] = "0117";
-  HARM_ALIC["MODE"] = "1";
-  HARM_ALIC["SUBMODE"] = "0";
-  HARM_ALIC["TER"] = "0";
 }
 
 void HARMSectionManager::setupEventFilters()
@@ -156,4 +160,23 @@ bool HARMSectionManager::eventFilter(QObject *obj, QEvent *event)
     }
   }
   return QObject::eventFilter(obj, event);
+}
+
+/*connect QComBox to slots*/
+void HARMSectionManager::on_Mode_ComBox_currentIndexChanged(int index)
+{
+  HARM_ALIC["MODE"] = QString::number(index);
+  qDebug() << "Mode: " << HARM_ALIC["MODE"];
+}
+
+void HARMSectionManager::on_SubMode_ComBox_currentIndexChanged(int index)
+{
+  HARM_ALIC["SUBMODE"] = QString::number(index);
+  qDebug() << "SubMode: " << HARM_ALIC["SUBMODE"];
+}
+
+void HARMSectionManager::on_TerTable_ComBox_currentTextChanged()
+{
+  HARM_ALIC["TER"] = comBox_TerTable->currentText();
+  qDebug() << "Ter: " << HARM_ALIC["TER"];
 }

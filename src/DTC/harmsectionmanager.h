@@ -16,6 +16,11 @@ public:
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
 
+private slots:
+    void on_Mode_ComBox_currentIndexChanged(int index);
+    void on_SubMode_ComBox_currentIndexChanged(int index);
+    void on_TerTable_ComBox_currentTextChanged();
+
 private:
     void init_DockWidget();
     void initHarmData();
@@ -24,12 +29,14 @@ private:
     QHash<QString, QString> HARM_ALIC;
     QHash<QString, QString> Map_ALIC_Name;
     QHash<QString, QString> Map_Name_ALIC;
+    JsonReader *JsonReaderObj;
+    HarmListDialog *HarmListDialogObj;
 
     Ui_NeoDP *ui;
 
-    QComboBox *Mode_ComBox;
-    QComboBox *SubMode_ComBox;
-    QComboBox *TerTable_ComBox;
+    QComboBox *comBox_Mode;
+    QComboBox *comBox_SubMode;
+    QComboBox *comBox_TerTable;
 
     /*Tr Tab1*/
     QLabel *Threat00_Label;
@@ -60,9 +67,6 @@ private:
     QPushButton *Threat21_Button;
     QPushButton *Threat22_Button;
     QPushButton *Threat23_Button;
-
-    JsonReader *JsonReaderObj;
-    HarmListDialog *HarmListDialogObj;
 
     QHash<QPushButton *, QPair<QLabel *, QString>> ButtonToThreat;
 };
