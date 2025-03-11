@@ -32,7 +32,7 @@
     </sizepolicy>
    </property>
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="0" column="1">
+    <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -44,7 +44,7 @@
        <locale language="English" country="UnitedStates"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="STPTWidget">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -64,6 +64,231 @@
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QTableView" name="SteerPointView"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="IFFPageWidget">
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="2">
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="title">
+             <string>Time Event</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_15">
+             <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>TIM Event</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="comboBox_5"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QComboBox" name="comboBox_6"/>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item alignment="Qt::AlignmentFlag::AlignHCenter">
+                <widget class="QLabel" name="label_9">
+                 <property name="text">
+                  <string>h</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="comboBox_7"/>
+               </item>
+              </layout>
+             </item>
+             <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>Mode 1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="lineEdit_5"/>
+             </item>
+             <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>Mode 3</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="lineEdit_6"/>
+             </item>
+             <item row="4" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_16">
+               <property name="text">
+                <string>Mode 4</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="comboBox_8"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="groupBox">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_13">
+             <item row="0" column="2">
+              <widget class="QComboBox" name="comboBox_IFF_STATUS"/>
+             </item>
+             <item row="3" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_Stat_Mode_3">
+               <property name="text">
+                <string>Mode 3</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_Stat_Mode4">
+               <property name="text">
+                <string>Mode 4</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLineEdit" name="lineEdit_Stat_Mode_1"/>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLineEdit" name="lineEdit_Stat_Mode_2"/>
+             </item>
+             <item row="4" column="2">
+              <widget class="QComboBox" name="comboBox_Stat_Mode_4"/>
+             </item>
+             <item row="3" column="2">
+              <widget class="QLineEdit" name="lineEdit_Stat_Mode_3"/>
+             </item>
+             <item row="2" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_Stat_Mode_2">
+               <property name="text">
+                <string>Mode 2</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_Stat_Mode_1">
+               <property name="text">
+                <string>Mode 1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_STAT">
+               <property name="text">
+                <string>STAT</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="chkBox_Stat_Mode_C">
+               <property name="text">
+                <string>Mode C</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_Stat_Mode_S">
+               <property name="text">
+                <string>Mode S</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="title">
+             <string>Position Event</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_14">
+             <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_19">
+               <property name="text">
+                <string>Pos Event</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QComboBox" name="comboBox_Pos"/>
+             </item>
+             <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_PosEvent_Mode_2">
+               <property name="text">
+                <string>Mode 2</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_PosEvent_Mode_S">
+               <property name="text">
+                <string>Mode S</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_PosEvent_Mode_1">
+               <property name="text">
+                <string>Mode 1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_PosEvent_Mode_4">
+               <property name="text">
+                <string>Mode 4</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_PosEvent_Mode_C">
+               <property name="text">
+                <string>Mode C</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QCheckBox" name="checkBox_PosEvent_Mode_3">
+               <property name="text">
+                <string>Mode 3</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="comboBox_PosEvent"/>
+             </item>
+             <item row="1" column="1">
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QLabel" name="label_20">
+                 <property name="text">
+                  <string>OF</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="lineEdit_PosEvent_Range"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </item>
