@@ -54,12 +54,30 @@ inline void IFFPageManager::init_PosEvent_Group()
 {
     comboBox_PosEvent->addItems({"1", "2"});
     comboBox_PosEvent_Direction->addItems({"North", "South", "East", "West"});
+
+    comboBox_PosEvent->setCurrentIndex(0);
+    comboBox_PosEvent_Direction->setCurrentIndex(IFF_Values["POS 0 Direction"].toInt());
+    checkBox_PosEvent_Mode1->setChecked(IFF_Values["POS 0 Mode1"].toInt());
+    checkBox_PosEvent_Mode2->setChecked(IFF_Values["POS 0 Mode2"].toInt());
+    checkBox_PosEvent_Mode3->setChecked(IFF_Values["POS 0 Mode3A"].toInt());
+    checkBox_PosEvent_Mode4->setChecked(IFF_Values["POS 0 Mode4"].toInt());
+    checkBox_PosEvent_ModeS->setChecked(IFF_Values["POS 0 ModeS"].toInt());
+    checkBox_PosEvent_ModeC->setChecked(IFF_Values["POS 0 ModeC"].toInt());
 }
 
-inline void IFFPageManager::init_TimeEvent_Group()
+void IFFPageManager::init_TimeEvent_Group()
 {
-    comboBox_Time_Event->addItems({"1", "2", "3", "4","5","6","7","8","9","10","11","12"});
+    comboBox_Time_Event->addItems({"0","1", "2", "3", "4","5","6","7","8","9","10","11"});
     comboBox_TIMEvent_Hour->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23","---"});
     comboBox_TIMEvent_Minute->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59","---"});
     comboBox_TIMEvent_Mode4->addItems({"A", "B"});
+
+    int Hour = IFF_Values["TIME 0 Criteria"].sliced(0, 2).toInt();
+    int Minute = IFF_Values["TIME 0 Criteria"].sliced(2, 2).toInt();
+    comboBox_Time_Event->setCurrentIndex(0);
+    comboBox_TIMEvent_Hour->setCurrentIndex(Hour);
+    comboBox_TIMEvent_Minute->setCurrentIndex(Minute);
+    lineEdit_TimEvent_Mode1->setText(IFF_Values["TIME 0 Mode1 Code"]);
+    lineEdit_TimEvent_Mode3->setText(IFF_Values["TIME 0 Mode3A Code"]);
+    comboBox_TIMEvent_Mode4->setCurrentIndex(IFF_Values["TIME 0 Mode4 Key"].toInt());
 }

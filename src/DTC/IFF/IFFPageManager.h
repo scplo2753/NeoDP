@@ -6,6 +6,7 @@
 #include <QLineEdit>
 class IFFPageManager : public QObject
 {
+    Q_OBJECT
 public:
     IFFPageManager(Ui_NeoDP *ui, QObject *parent = nullptr);
     ~IFFPageManager();
