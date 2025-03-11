@@ -10,7 +10,8 @@ DTC::DTC(Ui_NeoDP *ui, QObject *parent)
       DTCSettings(new QSettings(DTCInfo::STPTSectionPath, QSettings::IniFormat)),
       STPTTabModel(new STPTItemModel()),
       STPTProxyModel(new STPTSortFilterProxyModel()),
-      HarmManager(new HARMSectionManager(ui))
+      HarmManager(new HARMSectionManager(ui)),
+      IFFManagerObj(new IFFPageManager(ui))
 {
     InitSTPTSection();
     STPTProxyModel->setSourceModel(STPTTabModel);

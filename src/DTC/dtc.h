@@ -2,6 +2,7 @@
 #include "STPT/stptitemmodel.h"
 #include "STPT/stptsortfilterproxymodel.h"
 #include "HARM/harmsectionmanager.h"
+#include "IFF/iffpagemanager.h"
 #include "ui_NeoDP.h"
 #include <QSettings>
 #include <QVector>
@@ -25,7 +26,11 @@ private:
     STPTSortFilterProxyModel *STPTProxyModel;
     QStringList STPTKeys;
 
+    //[HARM]
     HARMSectionManager *HarmManager;
+
+    //[IFF]
+    IFFPageManager *IFFManagerObj;
 
     void InitSTPTSection();
 

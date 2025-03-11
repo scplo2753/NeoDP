@@ -13,7 +13,8 @@ SOURCES += \
     src/DTC/HARM/jsonreader.cpp \
     src/DTC/HARM/harmlistdialog.cpp \
     src/DTC/STPT/stptsortfilterproxymodel.cpp \
-    src/DTC/STPT/stptitemmodel.cpp
+    src/DTC/STPT/stptitemmodel.cpp \
+    src/DTC/IFF/IFFPageManager.cpp
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
@@ -24,7 +25,8 @@ HEADERS += \
     src/DTC/HARM/harmlistdialog.h \
     src/DTC/STPT/stptsortfilterproxymodel.h \
     src/DTC/STPT/stptitemmodel.h \
-    src/DTC/STPT/STPTMap.h
+    src/DTC/STPT/STPTMap.h \
+    src/DTC/IFF/IFFPageManager.h
 
 
 FORMS += $$PWD/src/NeoDP.ui
