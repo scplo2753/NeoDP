@@ -1,5 +1,4 @@
 #include "stptitemmodel.h"
-#include "../Common/DTCInfo.h"
 
 STPTItemModel::STPTItemModel(QObject *parent)
     : QAbstractTableModel{parent}
@@ -30,7 +29,7 @@ QVariant STPTItemModel::data(const QModelIndex &index, int role) const
                 if (str == "target" || str == "wpntarget")
                 {
                     if (!STPTData.at(row).Action.isNull() && STPTData.at(row).Action != "-1")
-                        return DTCInfo::STPTInfo::STPTActions[STPTData.at(row).Action.toInt()];
+                        return STPTInfo::STPTActions[STPTData.at(row).Action.toInt()];
                     else
                         return QVariant();
                 }
@@ -54,7 +53,7 @@ int STPTItemModel::rowCount(const QModelIndex &index) const
 int STPTItemModel::columnCount(const QModelIndex &index) const
 {
     Q_UNUSED(index)
-    return DTCInfo::STPTInfo::STPTColumnCount;
+    return STPTInfo::STPTColumnCount;
 }
 
 QVariant STPTItemModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -63,8 +62,8 @@ QVariant STPTItemModel::headerData(int section, Qt::Orientation orientation, int
     {
         if (orientation == Qt::Horizontal)
         {
-            if (section <= DTCInfo::STPTInfo::STPTHeader.size() - 1)
-                return DTCInfo::STPTInfo::STPTHeader.at(section);
+            if (section <= STPTInfo::STPTHeader.size() - 1)
+                return STPTInfo::STPTHeader.at(section);
             else
                 return QVariant();
         }

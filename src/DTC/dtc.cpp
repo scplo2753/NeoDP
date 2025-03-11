@@ -7,7 +7,7 @@
 DTC::DTC(Ui_NeoDP *ui, QObject *parent)
     : QObject{parent},
       ui(ui),
-      DTCSettings(new QSettings(DTCInfo::STPTInfo::STPTSectionPath, QSettings::IniFormat)),
+      DTCSettings(new QSettings(DTCInfo::STPTSectionPath, QSettings::IniFormat)),
       STPTTabModel(new STPTItemModel()),
       STPTProxyModel(new STPTSortFilterProxyModel()),
       HarmManager(new HARMSectionManager(ui))
@@ -24,6 +24,7 @@ DTC::DTC(Ui_NeoDP *ui, QObject *parent)
     connect(ui->STPT_sub_WPNT_pBut, &QPushButton::clicked, this, &DTC::STPTsubWPNTPuButtonClicked);
 
     connect(ui->Dock_HARM_pBut, &QPushButton::clicked, this, &DTC::Dock_Harm_pButClicked);
+    connect(ui->Dock_IFF_pBut, &QPushButton::clicked, this, &DTC::Dock_IFF_pButCilcked);
 }
 
 DTC::~DTC()
@@ -93,5 +94,11 @@ void DTC::STPTsubWPNTPuButtonClicked()
 void DTC::Dock_Harm_pButClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->HARMWidget);
+    ui->DockSTPTWidget->hide();
+}
+
+void DTC::Dock_IFF_pButCilcked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->IFFWidget);
     ui->DockSTPTWidget->hide();
 }

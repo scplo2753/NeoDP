@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
+    <width>765</width>
     <height>572</height>
    </rect>
   </property>
@@ -44,7 +44,7 @@
        <locale language="English" country="UnitedStates"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="STPTWidget">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -69,7 +69,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="IFFPageWidget">
+      <widget class="QWidget" name="IFFWidget">
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout">
@@ -886,7 +886,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>741</width>
+     <width>765</width>
      <height>33</height>
     </rect>
    </property>

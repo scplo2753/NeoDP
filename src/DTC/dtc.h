@@ -1,9 +1,7 @@
-#ifndef DTC_H
-#define DTC_H
-
-#include "stptitemmodel.h"
-#include "stptsortfilterproxymodel.h"
-#include "harmsectionmanager.h"
+#pragma once
+#include "STPT/stptitemmodel.h"
+#include "STPT/stptsortfilterproxymodel.h"
+#include "HARM/harmsectionmanager.h"
 #include "ui_NeoDP.h"
 #include <QSettings>
 #include <QVector>
@@ -39,6 +37,5 @@ private slots:
     void STPTsubWPNTPuButtonClicked();
 
     void Dock_Harm_pButClicked();
+    void Dock_IFF_pButCilcked();
 };
-
-#endif // DTC_H

@@ -9,20 +9,22 @@ SOURCES += \
     $$files($$PWD/src/*.cpp) \
     $$files(src/Common/*.cpp) \
     $$files(src/DTC/*.cpp) \
-    src/DTC/harmsectionmanager.cpp \
-    src/DTC/jsonreader.cpp \
-    src/DTC/harmlistdialog.cpp \
-    src/DTC/stptsortfilterproxymodel.cpp
+    src/DTC/HARM/harmsectionmanager.cpp \
+    src/DTC/HARM/jsonreader.cpp \
+    src/DTC/HARM/harmlistdialog.cpp \
+    src/DTC/STPT/stptsortfilterproxymodel.cpp \
+    src/DTC/STPT/stptitemmodel.cpp
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
     $$files(src/Common/*.h) \
     $$files(src/DTC/*.h) \
-    src/DTC/STPTMap.h \
-    src/DTC/harmsectionmanager.h \
-    src/DTC/jsonreader.h \
-    src/DTC/harmlistdialog.h \
-    src/DTC/stptsortfilterproxymodel.h
+    src/DTC/HARM/harmsectionmanager.h \
+    src/DTC/HARM/jsonreader.h \
+    src/DTC/HARM/harmlistdialog.h \
+    src/DTC/STPT/stptsortfilterproxymodel.h \
+    src/DTC/STPT/stptitemmodel.h \
+    src/DTC/STPT/STPTMap.h
 
 
 FORMS += $$PWD/src/NeoDP.ui

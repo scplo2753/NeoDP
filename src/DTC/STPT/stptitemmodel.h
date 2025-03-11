@@ -1,7 +1,6 @@
 #ifndef STPTITEMMODEL_H
 #define STPTITEMMODEL_H
 
-#include "qstandarditemmodel.h"
 #include <QAbstractTableModel>
 
 struct STPTStruct
@@ -23,6 +22,44 @@ struct STPTStruct
         Target = QString();
     }
 };
+
+namespace STPTInfo
+{
+    const int STPTRowCount = 42;
+    const int STPTColumnCount = 6;
+    const QVector<QString> STPTActions = {
+        "Nav",
+        "TakeOff",
+        "Push",
+        "Split",
+        "Refuel",
+        "Rearm",
+        "PickUp",
+        "Land",
+        "Holding",
+        "CASCAP",
+        "Escort",
+        "Sweep",
+        "CAP",
+        "Intrcpt",
+        "GNDStrk",
+        "NAVStrk",
+        "SD",
+        "Strike",
+        "Bomb",
+        "SEAD",
+        "ELINT",
+        "RECON",
+        "Rescue",
+        "ASW",
+        "Tanker",
+        "Airdrop",
+        "JAM",
+        "Land 2",
+        "B5",
+    };
+    const QVector<QString> STPTHeader = {"Steering Point", "Latitude", "Longtitude", "Altitude", "Action/Range", "Target"};
+}
 
 class STPTItemModel : public QAbstractTableModel
 {
