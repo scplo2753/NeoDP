@@ -1,4 +1,6 @@
 #include "IFFPageManager.h"
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 IFFPageManager::IFFPageManager(Ui_NeoDP *ui, QObject *parent) : QObject(parent),
                                                                 ui(ui)
@@ -19,7 +21,7 @@ IFFPageManager::IFFPageManager(Ui_NeoDP *ui, QObject *parent) : QObject(parent),
     /*Pos Event Group*/
     comboBox_PosEvent = ui->comboBox_PosEvent;
     comboBox_PosEvent_Direction = ui->comboBox_PosEvent_Direction;
-    lineEdit_PosEvent_WayPoint= ui->lineEdit_PosEvent_WayPoint;
+    lineEdit_PosEvent_WayPoint = ui->lineEdit_PosEvent_WayPoint;
     checkBox_PosEvent_Mode1 = ui->checkBox_PosEvent_Mode1;
     checkBox_PosEvent_Mode2 = ui->checkBox_PosEvent_Mode2;
     checkBox_PosEvent_Mode3 = ui->checkBox_PosEvent_Mode3;
@@ -35,49 +37,75 @@ IFFPageManager::IFFPageManager(Ui_NeoDP *ui, QObject *parent) : QObject(parent),
     lineEdit_TimEvent_Mode1 = ui->lineEdit_TIMEvent_Mode1;
     lineEdit_TimEvent_Mode3 = ui->lineEdit_TIMEvent_Mode3;
 
-    init_Status_Group();
-    init_PosEvent_Group();
-    init_TimeEvent_Group();
+
+    connect(comboBox_Time_Event,&QComboBox::currentIndexChanged, this, &IFFPageManager::init_TimeEvent_Group_Value);
+    connect(comboBox_PosEvent,&QComboBox::currentIndexChanged, this, &IFFPageManager::init_PosEvent_Group_Value);
+
+    init_Widgets();
+    init_Status_Group_Value();
+    comboBox_PosEvent->setCurrentIndex(0);
+    init_TimeEvent_Group_Value(0);
+    comboBox_Time_Event->setCurrentIndex(0);
+    init_PosEvent_Group_Value(0);
 }
 
 IFFPageManager::~IFFPageManager()
+{}
+
+inline void IFFPageManager::init_Widgets()
 {
+        /*Status Group*/
+        comboBox_IFF_STATUS->addItems({"POS", "TIM", "P/T"});
+        comboBox_Stat_Mode_4->addItems({"A", "B"});
+    
+        /*Pos Event Group*/
+        auto RegExp_WayPoint=new QIntValidator(1, 99);
+        lineEdit_PosEvent_WayPoint->setValidator(RegExp_WayPoint);
+        comboBox_PosEvent->addItems({"1", "2"});
+        comboBox_PosEvent_Direction->addItems({"--","North", "South", "East", "West"});
+    
+        /*Time Event Group*/
+        comboBox_Time_Event->addItems({"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"});
+        comboBox_TIMEvent_Hour->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "---"});
+        comboBox_TIMEvent_Minute->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "---"});
+        comboBox_TIMEvent_Mode4->addItems({"A", "B"});
 }
 
-inline void IFFPageManager::init_Status_Group()
+void IFFPageManager::init_Status_Group_Value()
 {
-    comboBox_IFF_STATUS->addItems({"POS", "TIM", "P/T"});
-    comboBox_Stat_Mode_4->addItems({"A", "B"});
+    comboBox_IFF_STATUS->setCurrentIndex(IFF_Values["AutoChange"].toInt());
+    checkBox_Stat_Mode1->setChecked(IFF_Values["Mode1 On"].toInt());
+    checkBox_Stat_Mode2->setChecked(IFF_Values["Mode2 On"].toInt());
+    checkBox_Stat_Mode3->setChecked(IFF_Values["Mode3A On"].toInt());
+    checkBox_Stat_Mode4->setChecked(IFF_Values["Mode4 On"].toInt());
+    checkBox_Stat_ModeS->setChecked(IFF_Values["ModeS On"].toInt());
+    checkBox_Stat_ModeC->setChecked(IFF_Values["ModeC On"].toInt());
+    lineEdit_Stat_Mode_1->setText(IFF_Values["Mode1 Code"]);
+    lineEdit_Stat_Mode_2->setText(IFF_Values["Mode2 Code"]);
+    lineEdit_Stat_Mode_3->setText(IFF_Values["Mode3A Code"]);
+    comboBox_Stat_Mode_4->setCurrentIndex(IFF_Values["Mode4 Key"].toInt());
 }
 
-inline void IFFPageManager::init_PosEvent_Group()
+void IFFPageManager::init_PosEvent_Group_Value(int number)
 {
-    comboBox_PosEvent->addItems({"1", "2"});
-    comboBox_PosEvent_Direction->addItems({"North", "South", "East", "West"});
-
-    comboBox_PosEvent->setCurrentIndex(0);
-    comboBox_PosEvent_Direction->setCurrentIndex(IFF_Values["POS 0 Direction"].toInt());
-    checkBox_PosEvent_Mode1->setChecked(IFF_Values["POS 0 Mode1"].toInt());
-    checkBox_PosEvent_Mode2->setChecked(IFF_Values["POS 0 Mode2"].toInt());
-    checkBox_PosEvent_Mode3->setChecked(IFF_Values["POS 0 Mode3A"].toInt());
-    checkBox_PosEvent_Mode4->setChecked(IFF_Values["POS 0 Mode4"].toInt());
-    checkBox_PosEvent_ModeS->setChecked(IFF_Values["POS 0 ModeS"].toInt());
-    checkBox_PosEvent_ModeC->setChecked(IFF_Values["POS 0 ModeC"].toInt());
+    comboBox_PosEvent->setCurrentIndex(number);
+    comboBox_PosEvent_Direction->setCurrentIndex(IFF_Values[QString("POS %1 Direction").arg(number)].toInt());
+    lineEdit_PosEvent_WayPoint->setText(IFF_Values[QString("POS %1 WayPoint").arg(number)]);
+    checkBox_PosEvent_Mode1->setChecked(IFF_Values[QString("POS %1 Mode1").arg(number)].toInt());
+    checkBox_PosEvent_Mode2->setChecked(IFF_Values[QString("POS %1 Mode2").arg(number)].toInt());
+    checkBox_PosEvent_Mode3->setChecked(IFF_Values[QString("POS %1 Mode3A").arg(number)].toInt());
+    checkBox_PosEvent_Mode4->setChecked(IFF_Values[QString("POS %1 Mode4").arg(number)].toInt());
+    checkBox_PosEvent_ModeS->setChecked(IFF_Values[QString("POS %1 ModeS").arg(number)].toInt());
+    checkBox_PosEvent_ModeC->setChecked(IFF_Values[QString("POS %1 ModeC").arg(number)].toInt());
 }
 
-void IFFPageManager::init_TimeEvent_Group()
+void IFFPageManager::init_TimeEvent_Group_Value(int number)
 {
-    comboBox_Time_Event->addItems({"0","1", "2", "3", "4","5","6","7","8","9","10","11"});
-    comboBox_TIMEvent_Hour->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23","---"});
-    comboBox_TIMEvent_Minute->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59","---"});
-    comboBox_TIMEvent_Mode4->addItems({"A", "B"});
-
-    int Hour = IFF_Values["TIME 0 Criteria"].sliced(0, 2).toInt();
-    int Minute = IFF_Values["TIME 0 Criteria"].sliced(2, 2).toInt();
-    comboBox_Time_Event->setCurrentIndex(0);
+    int Hour = IFF_Values[QString("TIME %1 Criteria").arg(number)].sliced(0, 2).toInt();
+    int Minute = IFF_Values[QString("TIME %1 Criteria").arg(number)].sliced(2, 2).toInt();
     comboBox_TIMEvent_Hour->setCurrentIndex(Hour);
     comboBox_TIMEvent_Minute->setCurrentIndex(Minute);
-    lineEdit_TimEvent_Mode1->setText(IFF_Values["TIME 0 Mode1 Code"]);
-    lineEdit_TimEvent_Mode3->setText(IFF_Values["TIME 0 Mode3A Code"]);
-    comboBox_TIMEvent_Mode4->setCurrentIndex(IFF_Values["TIME 0 Mode4 Key"].toInt());
+    lineEdit_TimEvent_Mode1->setText(IFF_Values[QString("TIME %1 Mode1 Code").arg(number)]);
+    lineEdit_TimEvent_Mode3->setText(IFF_Values[QString("TIME %1 Mode3A Code").arg(number)]);
+    comboBox_TIMEvent_Mode4->setCurrentIndex(IFF_Values[QString("TIME %1 Mode4 Key").arg(number)].toInt());
 }

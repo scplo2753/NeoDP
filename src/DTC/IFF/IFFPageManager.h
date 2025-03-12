@@ -11,10 +11,13 @@ public:
     IFFPageManager(Ui_NeoDP *ui, QObject *parent = nullptr);
     ~IFFPageManager();
 
+private slots:
+    void init_TimeEvent_Group_Value(int number);
+    void init_PosEvent_Group_Value(int number);
+
 private: // Methods
-    void init_Status_Group();
-    void init_PosEvent_Group();
-    void init_TimeEvent_Group();
+    void init_Widgets();
+    void init_Status_Group_Value();
 
 private: // Members
     Ui_NeoDP *ui;
@@ -124,8 +127,8 @@ private: // Members
         {"POS 1 Mode2", "1"},
         {"POS 1 Mode3A", "0"},
         {"POS 1 Mode4", "1"},
-        {"POS 1 ModeC", "0"},
-        {"POS 1 ModeS", "0"},
+        {"POS 1 ModeC", "1"},
+        {"POS 1 ModeS", "1"},
         {"POS 1 WayPoint", " 0"},
         {"POS 1 Direction", "0"}};
 };
