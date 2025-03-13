@@ -34,12 +34,10 @@ IFFPageManager::IFFPageManager(Ui_NeoDP *ui, QObject *parent) : QObject(parent),
     comboBox_TIMEvent_Mode4 = ui->comboBox_TIMEvent_Mode4;
     comboBox_TIMEvent_Hour = ui->comboBox_TIMEvent_Hour;
     comboBox_TIMEvent_Minute = ui->comboBox_TIMEvent_Minute;
-    lineEdit_TimEvent_Mode1 = ui->lineEdit_TIMEvent_Mode1;
-    lineEdit_TimEvent_Mode3 = ui->lineEdit_TIMEvent_Mode3;
+    lineEdit_TIMEvent_Mode1 = ui->lineEdit_TIMEvent_Mode1;
+    lineEdit_TIMEvent_Mode3 = ui->lineEdit_TIMEvent_Mode3;
 
-
-    connect(comboBox_Time_Event,&QComboBox::currentIndexChanged, this, &IFFPageManager::init_TimeEvent_Group_Value);
-    connect(comboBox_PosEvent,&QComboBox::currentIndexChanged, this, &IFFPageManager::init_PosEvent_Group_Value);
+    connectionManager();
 
     init_Widgets();
     init_Status_Group_Value();
@@ -50,25 +48,54 @@ IFFPageManager::IFFPageManager(Ui_NeoDP *ui, QObject *parent) : QObject(parent),
 }
 
 IFFPageManager::~IFFPageManager()
-{}
-
-inline void IFFPageManager::init_Widgets()
 {
-        /*Status Group*/
-        comboBox_IFF_STATUS->addItems({"POS", "TIM", "P/T"});
-        comboBox_Stat_Mode_4->addItems({"A", "B"});
-    
-        /*Pos Event Group*/
-        auto RegExp_WayPoint=new QIntValidator(1, 99);
-        lineEdit_PosEvent_WayPoint->setValidator(RegExp_WayPoint);
-        comboBox_PosEvent->addItems({"1", "2"});
-        comboBox_PosEvent_Direction->addItems({"--","North", "South", "East", "West"});
-    
-        /*Time Event Group*/
-        comboBox_Time_Event->addItems({"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"});
-        comboBox_TIMEvent_Hour->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "---"});
-        comboBox_TIMEvent_Minute->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "---"});
-        comboBox_TIMEvent_Mode4->addItems({"A", "B"});
+}
+
+void IFFPageManager::connectionManager()
+{
+    /*Pos Event Group*/
+    connect(lineEdit_PosEvent_WayPoint, &QLineEdit::editingFinished, [this]()
+            { IFF_Values[QString("POS %1 WayPoint").arg(comboBox_PosEvent->currentText())] = lineEdit_PosEvent_WayPoint->text(); });
+    connect(checkBox_PosEvent_Mode1, &QCheckBox::stateChanged, [this]()
+            { IFF_Values[QString("POS %1 Mode1").arg(comboBox_PosEvent->currentText())] = QString::number(checkBox_PosEvent_Mode1->isChecked()); });
+    connect(checkBox_PosEvent_Mode2, &QCheckBox::stateChanged, [this]()
+            { IFF_Values[QString("POS %1 Mode2").arg(comboBox_PosEvent->currentText())] = QString::number(checkBox_PosEvent_Mode2->isChecked()); });
+    connect(checkBox_PosEvent_Mode3, &QCheckBox::stateChanged, [this]()
+            { IFF_Values[QString("POS %1 Mode3A").arg(comboBox_PosEvent->currentText())] = QString::number(checkBox_PosEvent_Mode3->isChecked()); });
+    connect(checkBox_PosEvent_Mode4, &QCheckBox::stateChanged, [this]()
+            { IFF_Values[QString("POS %1 Mode4").arg(comboBox_PosEvent->currentText())] = QString::number(checkBox_PosEvent_Mode4->isChecked()); });
+    connect(checkBox_PosEvent_ModeS, &QCheckBox::stateChanged, [this]()
+            { IFF_Values[QString("POS %1 ModeS").arg(comboBox_PosEvent->currentText())] = QString::number(checkBox_PosEvent_ModeS->isChecked()); });
+    connect(checkBox_PosEvent_ModeC, &QCheckBox::stateChanged, [this]()
+            { IFF_Values[QString("POS %1 ModeC").arg(comboBox_PosEvent->currentText())] = QString::number(checkBox_PosEvent_ModeC->isChecked()); });
+
+    /*Time Event Group*/
+    connect(comboBox_Time_Event, &QComboBox::currentIndexChanged, this, &IFFPageManager::init_TimeEvent_Group_Value);
+    connect(comboBox_PosEvent, &QComboBox::currentIndexChanged, this, &IFFPageManager::init_PosEvent_Group_Value);
+    connect(comboBox_PosEvent_Direction, &QComboBox::currentIndexChanged, this, &IFFPageManager::slot_PosEvent_Direction_Changed);
+    connect(comboBox_TIMEvent_Hour, &QComboBox::currentIndexChanged, [this]()
+            { IFF_Values[QString("TIME %1 Criteria").arg(comboBox_Time_Event->currentText())] = QString("%1%2").arg(comboBox_TIMEvent_Hour->currentText(),comboBox_TIMEvent_Minute->currentText()); });
+    connect(comboBox_TIMEvent_Minute, &QComboBox::currentIndexChanged, [this]()
+            { IFF_Values[QString("TIME %1 Criteria").arg(comboBox_Time_Event->currentText())] = QString("%1%2").arg(comboBox_TIMEvent_Hour->currentText(),comboBox_TIMEvent_Minute->currentText()); });
+}
+
+void IFFPageManager::init_Widgets()
+{
+    /*Status Group*/
+    comboBox_IFF_STATUS->addItems({"POS", "TIM", "P/T"});
+    comboBox_Stat_Mode_4->addItems({"A", "B"});
+
+    /*Pos Event Group*/
+    auto RegExp_WayPoint = new QIntValidator(1, 99);
+    lineEdit_PosEvent_WayPoint->setValidator(RegExp_WayPoint);
+    comboBox_PosEvent->addItems({"1", "2"});
+    comboBox_PosEvent_Direction->addItems({"--", "North", "South", "East", "West"});
+
+    /*Time Event Group*/
+    comboBox_Time_Event->addItems({"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"});
+    comboBox_TIMEvent_Hour->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "---"});
+    comboBox_TIMEvent_Minute->addItems({"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "---"});
+    comboBox_TIMEvent_Mode4->addItems({"A", "B"});
 }
 
 void IFFPageManager::init_Status_Group_Value()
@@ -90,7 +117,17 @@ void IFFPageManager::init_PosEvent_Group_Value(int number)
 {
     comboBox_PosEvent->setCurrentIndex(number);
     comboBox_PosEvent_Direction->setCurrentIndex(IFF_Values[QString("POS %1 Direction").arg(number)].toInt());
-    lineEdit_PosEvent_WayPoint->setText(IFF_Values[QString("POS %1 WayPoint").arg(number)]);
+    int WayPoint = IFF_Values[QString("POS %1 WayPoint").arg(number)].toInt();
+    if (WayPoint == 0)
+    {
+        lineEdit_PosEvent_WayPoint->setEnabled(false);
+        lineEdit_PosEvent_WayPoint->setText("---");
+    }
+    else
+    {
+        lineEdit_PosEvent_WayPoint->setEnabled(true);
+        lineEdit_PosEvent_WayPoint->setText(QString::number(WayPoint));
+    }
     checkBox_PosEvent_Mode1->setChecked(IFF_Values[QString("POS %1 Mode1").arg(number)].toInt());
     checkBox_PosEvent_Mode2->setChecked(IFF_Values[QString("POS %1 Mode2").arg(number)].toInt());
     checkBox_PosEvent_Mode3->setChecked(IFF_Values[QString("POS %1 Mode3A").arg(number)].toInt());
@@ -105,7 +142,21 @@ void IFFPageManager::init_TimeEvent_Group_Value(int number)
     int Minute = IFF_Values[QString("TIME %1 Criteria").arg(number)].sliced(2, 2).toInt();
     comboBox_TIMEvent_Hour->setCurrentIndex(Hour);
     comboBox_TIMEvent_Minute->setCurrentIndex(Minute);
-    lineEdit_TimEvent_Mode1->setText(IFF_Values[QString("TIME %1 Mode1 Code").arg(number)]);
-    lineEdit_TimEvent_Mode3->setText(IFF_Values[QString("TIME %1 Mode3A Code").arg(number)]);
+    lineEdit_TIMEvent_Mode1->setText(IFF_Values[QString("TIME %1 Mode1 Code").arg(number)]);
+    lineEdit_TIMEvent_Mode3->setText(IFF_Values[QString("TIME %1 Mode3A Code").arg(number)]);
     comboBox_TIMEvent_Mode4->setCurrentIndex(IFF_Values[QString("TIME %1 Mode4 Key").arg(number)].toInt());
+}
+
+void IFFPageManager::slot_PosEvent_Direction_Changed(int index)
+{
+    if (index == 0)
+    {
+        lineEdit_PosEvent_WayPoint->setEnabled(false);
+        lineEdit_PosEvent_WayPoint->setText("---");
+    }
+    else if (lineEdit_PosEvent_WayPoint->isEnabled() == false)
+    {
+        lineEdit_PosEvent_WayPoint->setEnabled(true);
+        lineEdit_PosEvent_WayPoint->setText("1");
+    }
 }

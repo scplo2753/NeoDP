@@ -14,8 +14,10 @@ public:
 private slots:
     void init_TimeEvent_Group_Value(int number);
     void init_PosEvent_Group_Value(int number);
+    void slot_PosEvent_Direction_Changed(int index);
 
 private: // Methods
+    void connectionManager();
     void init_Widgets();
     void init_Status_Group_Value();
 
@@ -50,8 +52,8 @@ private: // Members
     QComboBox *comboBox_Time_Event;
     QComboBox *comboBox_TIMEvent_Hour;
     QComboBox *comboBox_TIMEvent_Minute;
-    QLineEdit *lineEdit_TimEvent_Mode1;
-    QLineEdit *lineEdit_TimEvent_Mode3;
+    QLineEdit *lineEdit_TIMEvent_Mode1;
+    QLineEdit *lineEdit_TIMEvent_Mode3;
     QComboBox *comboBox_TIMEvent_Mode4;
 
     /*----------------Values-----------------*/
@@ -121,14 +123,14 @@ private: // Members
         {"POS 0 Mode4", "1"},
         {"POS 0 ModeC", "0"},
         {"POS 0 ModeS", "0"},
-        {"POS 0 WayPoint", " 0"},
-        {"POS 0 Direction", "0"},
+        {"POS 0 WayPoint", " 1"},
+        {"POS 0 Direction", "01"},
         {"POS 1 Mode1", "1"},
         {"POS 1 Mode2", "1"},
         {"POS 1 Mode3A", "0"},
         {"POS 1 Mode4", "1"},
         {"POS 1 ModeC", "1"},
         {"POS 1 ModeS", "1"},
-        {"POS 1 WayPoint", " 0"},
-        {"POS 1 Direction", "0"}};
+        {"POS 1 WayPoint", " 2"},
+        {"POS 1 Direction", "02"}};
 };
