@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>765</width>
-    <height>572</height>
+    <width>741</width>
+    <height>689</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -35,7 +35,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -44,8 +44,794 @@
        <locale language="English" country="UnitedStates"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
+      <widget class="QWidget" name="Link16PageWidget">
+       <layout class="QGridLayout" name="gridLayout_20">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <property name="documentMode">
+           <bool>false</bool>
+          </property>
+          <property name="tabBarAutoHide">
+           <bool>false</bool>
+          </property>
+          <widget class="QWidget" name="Link16_Page_A">
+           <attribute name="title">
+            <string>Link16 Page A</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_52">
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_38">
+               <item row="0" column="0">
+                <layout class="QGridLayout" name="gridLayout_37">
+                 <item row="0" column="0" rowspan="2">
+                  <widget class="QGroupBox" name="groupBox_9">
+                   <property name="title">
+                    <string>GroupBox</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_39">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_40">
+                      <item row="0" column="0">
+                       <layout class="QGridLayout" name="gridLayout_41">
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_50">
+                          <property name="text">
+                           <string>Voice Group A Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageA_VoiceAChannel"/>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_51">
+                          <property name="text">
+                           <string>Voice Group B Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageA_VoiceBChannel"/>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="1" column="0">
+                       <layout class="QGridLayout" name="gridLayout_42">
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_52">
+                          <property name="text">
+                           <string>Mission Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageA_MissionChannel"/>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_53">
+                          <property name="text">
+                           <string>Fighter Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageA_FighterChannel"/>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_54">
+                          <property name="text">
+                           <string>Special Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageA_SpecialChannel"/>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <layout class="QGridLayout" name="gridLayout_35">
+                   <item row="0" column="2">
+                    <widget class="QLineEdit" name="lineEdit_L16_PageA_CS"/>
+                   </item>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_56">
+                     <property name="text">
+                      <string>CallSign Number</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLineEdit" name="lineEdit_L16_PageA_CSNumber"/>
+                   </item>
+                   <item row="2" column="0" colspan="3" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                    <widget class="QCheckBox" name="checkBox_L16PageA_Flight_Lead">
+                     <property name="layoutDirection">
+                      <enum>Qt::LayoutDirection::RightToLeft</enum>
+                     </property>
+                     <property name="text">
+                      <string>Is Flight Leader?</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QLabel" name="label_55">
+                     <property name="text">
+                      <string>CallSign</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QGroupBox" name="groupBox_10">
+                   <property name="title">
+                    <string>TACAN</string>
+                   </property>
+                   <property name="flat">
+                    <bool>false</bool>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_44">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_45">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_58">
+                        <property name="text">
+                         <string>TACAN Channel</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_TACAN_Channel"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_59">
+                        <property name="text">
+                         <string>TACAN Band</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QComboBox" name="comboBox_L16_PageA_TACAN_BAND"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QGroupBox" name="groupBox_11">
+                   <property name="title">
+                    <string>Flight STN</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_46">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_47">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_60">
+                        <property name="text">
+                         <string>Flight 1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Flight1"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_61">
+                        <property name="text">
+                         <string>Flight 2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Flight2"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_62">
+                        <property name="text">
+                         <string>Flight 3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Flight3"/>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_63">
+                        <property name="text">
+                         <string>Flight 4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Flight4"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QGroupBox" name="groupBox_12">
+                   <property name="title">
+                    <string>Team STN</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_48">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_49">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_64">
+                        <property name="text">
+                         <string>Team 1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Team1"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_65">
+                        <property name="text">
+                         <string>Team 2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Team2"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_66">
+                        <property name="text">
+                         <string>Team 3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Team3"/>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_67">
+                        <property name="text">
+                         <string>Team 4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Team4"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QGroupBox" name="groupBox_13">
+                   <property name="title">
+                    <string>Donor STN</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_50">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_51">
+                      <property name="horizontalSpacing">
+                       <number>9</number>
+                      </property>
+                      <property name="verticalSpacing">
+                       <number>6</number>
+                      </property>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_68">
+                        <property name="text">
+                         <string>Donor 1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor1"/>
+                      </item>
+                      <item row="0" column="2">
+                       <widget class="QLabel" name="label_69">
+                        <property name="text">
+                         <string>Donor 5</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor5"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_70">
+                        <property name="text">
+                         <string>Donor 2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor2"/>
+                      </item>
+                      <item row="1" column="2">
+                       <widget class="QLabel" name="label_71">
+                        <property name="text">
+                         <string>Donor 6</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor6"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_72">
+                        <property name="text">
+                         <string>Donor 3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor3"/>
+                      </item>
+                      <item row="2" column="2">
+                       <widget class="QLabel" name="label_73">
+                        <property name="text">
+                         <string>Donor 7</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor7"/>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_74">
+                        <property name="text">
+                         <string>Donor 4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor4">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="2">
+                       <widget class="QLabel" name="label_75">
+                        <property name="text">
+                         <string>Donor 8</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageA_Donor8">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="Link16_Page_B">
+           <attribute name="title">
+            <string>Link16 Page B</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_36">
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Shadow::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_29">
+               <item row="0" column="0">
+                <layout class="QGridLayout" name="gridLayout_23">
+                 <item row="0" column="0" rowspan="2">
+                  <widget class="QGroupBox" name="groupBox_5">
+                   <property name="title">
+                    <string>GroupBox</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_31">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_25">
+                      <item row="0" column="0">
+                       <layout class="QGridLayout" name="gridLayout_24">
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_17">
+                          <property name="text">
+                           <string>Voice Group A Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageB_VoiceAChannel"/>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_24">
+                          <property name="text">
+                           <string>Voice Group B Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageB_VoiceBChannel"/>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="1" column="0">
+                       <layout class="QGridLayout" name="gridLayout_22">
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_28">
+                          <property name="text">
+                           <string>Special Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0">
+                         <widget class="QLabel" name="label_27">
+                          <property name="text">
+                           <string>Fighter Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageB_SpecialChannel"/>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageB_MissionChannel"/>
+                        </item>
+                        <item row="1" column="1">
+                         <widget class="QLineEdit" name="lineEdit_L16_PageB_FighterChannel"/>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_25">
+                          <property name="text">
+                           <string>Mission Channel</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <layout class="QGridLayout" name="gridLayout_6">
+                   <item row="0" column="2">
+                    <widget class="QLineEdit" name="lineEdit_L16_PageB_CS"/>
+                   </item>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_30">
+                     <property name="text">
+                      <string>CallSign Number</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLineEdit" name="lineEdit_L16_PageB_CSNumber"/>
+                   </item>
+                   <item row="2" column="0" colspan="3" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                    <widget class="QCheckBox" name="checkBox_L16PageB_Flight_Lead">
+                     <property name="layoutDirection">
+                      <enum>Qt::LayoutDirection::RightToLeft</enum>
+                     </property>
+                     <property name="text">
+                      <string>Is Flight Leader?</string>
+                     </property>
+                     <property name="tristate">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QLabel" name="label_29">
+                     <property name="text">
+                      <string>CallSign</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QGroupBox" name="groupBox_4">
+                   <property name="title">
+                    <string>TACAN</string>
+                   </property>
+                   <property name="flat">
+                    <bool>false</bool>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_30">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_21">
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_TACAN_Channel"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_33">
+                        <property name="text">
+                         <string>TACAN Band</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QComboBox" name="comboBox_L16_PageB_TACAN_BAND"/>
+                      </item>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_32">
+                        <property name="text">
+                         <string>TACAN Channel</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QGroupBox" name="groupBox_6">
+                   <property name="title">
+                    <string>Flight STN</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_33">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_26">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_34">
+                        <property name="text">
+                         <string>Flight 1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Flight1"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_35">
+                        <property name="text">
+                         <string>Flight 2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Flight2"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_36">
+                        <property name="text">
+                         <string>Flight 3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Flight3"/>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_37">
+                        <property name="text">
+                         <string>Flight 4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Flight4"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QGroupBox" name="groupBox_7">
+                   <property name="title">
+                    <string>Team STN</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_32">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_27">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_38">
+                        <property name="text">
+                         <string>Team 1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Team1"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_39">
+                        <property name="text">
+                         <string>Team 2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Team2"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_40">
+                        <property name="text">
+                         <string>Team 3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Team3"/>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_41">
+                        <property name="text">
+                         <string>Team 4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Team4"/>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QGroupBox" name="groupBox_8">
+                   <property name="title">
+                    <string>Donor STN</string>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_34">
+                    <item row="0" column="0">
+                     <layout class="QGridLayout" name="gridLayout_28">
+                      <property name="horizontalSpacing">
+                       <number>9</number>
+                      </property>
+                      <property name="verticalSpacing">
+                       <number>6</number>
+                      </property>
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_42">
+                        <property name="text">
+                         <string>Donor 1</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor1"/>
+                      </item>
+                      <item row="0" column="2">
+                       <widget class="QLabel" name="label_46">
+                        <property name="text">
+                         <string>Donor 5</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor5"/>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_43">
+                        <property name="text">
+                         <string>Donor 2</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor2"/>
+                      </item>
+                      <item row="1" column="2">
+                       <widget class="QLabel" name="label_49">
+                        <property name="text">
+                         <string>Donor 6</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor6"/>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLabel" name="label_44">
+                        <property name="text">
+                         <string>Donor 3</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor3"/>
+                      </item>
+                      <item row="2" column="2">
+                       <widget class="QLabel" name="label_48">
+                        <property name="text">
+                         <string>Donor 7</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor7"/>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_45">
+                        <property name="text">
+                         <string>Donor 4</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor4">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="2">
+                       <widget class="QLabel" name="label_47">
+                        <property name="text">
+                         <string>Donor 8</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="3">
+                       <widget class="QLineEdit" name="lineEdit_L16_PageB_Donor8">
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="STPTWidget">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <property name="leftMargin">
@@ -70,227 +856,550 @@
        </layout>
       </widget>
       <widget class="QWidget" name="IFFWidget">
-       <layout class="QGridLayout" name="gridLayout_6">
+       <layout class="QFormLayout" name="formLayout">
         <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="2">
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="title">
-             <string>Time Event</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_15">
-             <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>TIM Event</string>
+         <widget class="QFrame" name="frame">
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_16">
+           <item row="4" column="0">
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <widget class="QGroupBox" name="groupBox_2">
+               <property name="title">
+                <string>Position Event</string>
                </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_TIMEvent"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QComboBox" name="comboBox_TIMEvent_Hour"/>
-             </item>
-             <item row="1" column="1">
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
-               <item alignment="Qt::AlignmentFlag::AlignHCenter">
-                <widget class="QLabel" name="label_9">
-                 <property name="text">
-                  <string>h</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="comboBox_TIMEvent_Minute"/>
-               </item>
-              </layout>
-             </item>
-             <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLabel" name="label_11">
-               <property name="text">
-                <string>Mode 1</string>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="lineEdit_TIMEvent_Mode1"/>
-             </item>
-             <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLabel" name="label_12">
-               <property name="text">
-                <string>Mode 3</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="lineEdit_TIMEvent_Mode3"/>
-             </item>
-             <item row="4" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLabel" name="label_16">
-               <property name="text">
-                <string>Mode 4</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QComboBox" name="comboBox_TIMEvent_Mode4"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QGroupBox" name="groupBox">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_13">
-             <item row="0" column="2">
-              <widget class="QComboBox" name="comboBox_IFF_STATUS"/>
-             </item>
-             <item row="3" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_Stat_Mode3">
-               <property name="text">
-                <string>Mode 3</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_Stat_Mode4">
-               <property name="text">
-                <string>Mode 4</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLineEdit" name="lineEdit_Stat_Mode1"/>
-             </item>
-             <item row="2" column="2">
-              <widget class="QLineEdit" name="lineEdit_Stat_Mode2"/>
-             </item>
-             <item row="4" column="2">
-              <widget class="QComboBox" name="comboBox_Stat_Mode4"/>
-             </item>
-             <item row="3" column="2">
-              <widget class="QLineEdit" name="lineEdit_Stat_Mode3"/>
-             </item>
-             <item row="2" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_Stat_Mode2">
-               <property name="text">
-                <string>Mode 2</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_Stat_Mode1">
-               <property name="text">
-                <string>Mode 1</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLabel" name="label_STAT">
-               <property name="text">
-                <string>STAT</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_Stat_ModeC">
-               <property name="text">
-                <string>Mode C</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_Stat_ModeS">
-               <property name="text">
-                <string>Mode S</string>
-               </property>
+               <layout class="QGridLayout" name="gridLayout_19">
+                <item row="0" column="0">
+                 <layout class="QGridLayout" name="gridLayout_13">
+                  <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                   <widget class="QCheckBox" name="checkBox_PosEvent_Mode2">
+                    <property name="layoutDirection">
+                     <enum>Qt::LayoutDirection::RightToLeft</enum>
+                    </property>
+                    <property name="text">
+                     <string>Mode 2</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="label_20">
+                    <property name="text">
+                     <string>OF</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_19">
+                    <property name="text">
+                     <string>Pos Event</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QComboBox" name="comboBox_PosEvent_Direction"/>
+                  </item>
+                  <item row="4" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+                   <widget class="QCheckBox" name="checkBox_PosEvent_ModeS">
+                    <property name="layoutDirection">
+                     <enum>Qt::LayoutDirection::RightToLeft</enum>
+                    </property>
+                    <property name="text">
+                     <string>Mode S</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+                   <widget class="QCheckBox" name="checkBox_PosEvent_ModeC">
+                    <property name="layoutDirection">
+                     <enum>Qt::LayoutDirection::RightToLeft</enum>
+                    </property>
+                    <property name="text">
+                     <string>Mode C</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" colspan="2">
+                   <widget class="QComboBox" name="comboBox_PosEvent"/>
+                  </item>
+                  <item row="4" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                   <widget class="QCheckBox" name="checkBox_PosEvent_Mode3">
+                    <property name="layoutDirection">
+                     <enum>Qt::LayoutDirection::RightToLeft</enum>
+                    </property>
+                    <property name="text">
+                     <string>Mode 3</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                   <widget class="QCheckBox" name="checkBox_PosEvent_Mode4">
+                    <property name="layoutDirection">
+                     <enum>Qt::LayoutDirection::RightToLeft</enum>
+                    </property>
+                    <property name="text">
+                     <string>Mode 4</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                   <widget class="QCheckBox" name="checkBox_PosEvent_Mode1">
+                    <property name="layoutDirection">
+                     <enum>Qt::LayoutDirection::RightToLeft</enum>
+                    </property>
+                    <property name="text">
+                     <string>Mode 1</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="lineEdit_PosEvent_WayPoint">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="readOnly">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QGroupBox" name="groupBox_2">
-            <property name="title">
-             <string>Position Event</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_14">
-             <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLabel" name="label_19">
-               <property name="text">
-                <string>Pos Event</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QComboBox" name="comboBox_PosEvent_Direction"/>
-             </item>
-             <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_PosEvent_Mode2">
-               <property name="text">
-                <string>Mode 2</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_PosEvent_ModeS">
-               <property name="text">
-                <string>Mode S</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_PosEvent_Mode1">
-               <property name="text">
-                <string>Mode 1</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_PosEvent_Mode4">
-               <property name="text">
-                <string>Mode 4</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_PosEvent_ModeC">
-               <property name="text">
-                <string>Mode C</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QCheckBox" name="checkBox_PosEvent_Mode3">
-               <property name="text">
-                <string>Mode 3</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_PosEvent"/>
-             </item>
-             <item row="1" column="1">
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <item>
-                <widget class="QLabel" name="label_20">
-                 <property name="text">
-                  <string>OF</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEdit_PosEvent_WayPoint"/>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Status</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_18">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_14">
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode2_Tens">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QCheckBox" name="checkBox_Stat_ModeC">
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::RightToLeft</enum>
+                  </property>
+                  <property name="text">
+                   <string>Mode C</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode3A_Tens">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode2_Thousands">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="value">
+                   <number>0</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QCheckBox" name="checkBox_Stat_Mode1">
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::RightToLeft</enum>
+                  </property>
+                  <property name="text">
+                   <string>Mode 1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode1_Tens">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="4">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode3A_Units">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QCheckBox" name="checkBox_Stat_Mode2">
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::RightToLeft</enum>
+                  </property>
+                  <property name="text">
+                   <string>Mode 2</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QCheckBox" name="checkBox_Stat_ModeS">
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::RightToLeft</enum>
+                  </property>
+                  <property name="text">
+                   <string>Mode S</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode2_Hundreds">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_STAT">
+                  <property name="text">
+                   <string>STAT</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QCheckBox" name="checkBox_Stat_Mode4">
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::RightToLeft</enum>
+                  </property>
+                  <property name="text">
+                   <string>Mode 4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode1_Units">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QCheckBox" name="checkBox_Stat_Mode3">
+                  <property name="layoutDirection">
+                   <enum>Qt::LayoutDirection::RightToLeft</enum>
+                  </property>
+                  <property name="text">
+                   <string>Mode 3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode3A_Hundreds">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="4">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode2_Units">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="4">
+                 <widget class="QComboBox" name="comboBox_IFF_STATUS">
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>200</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="spinBox_Stat_Mode3A_Thousands">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>60</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1" colspan="4">
+                 <widget class="QComboBox" name="comboBox_Stat_Mode4">
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>200</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="title">
+              <string>Time Event</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_17">
+              <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_15">
+                <item row="1" column="4" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Minute</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="spinBox_TIMEvent_Mode3A_Thousands"/>
+                </item>
+                <item row="1" column="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>Hour</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QSpinBox" name="spinBox_TIMEvent_Mode3A_Hundreds"/>
+                </item>
+                <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_11">
+                  <property name="text">
+                   <string>Mode 1</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1" colspan="4">
+                 <widget class="QComboBox" name="comboBox_TIMEvent_Mode4"/>
+                </item>
+                <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Mode 3</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QComboBox" name="comboBox_TIMEvent_Minute">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="sizeIncrement">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="spinBox_TIMEvent_Mode1_Tens"/>
+                </item>
+                <item row="3" column="4">
+                 <widget class="QSpinBox" name="spinBox_TIMEvent_Mode3A_Units"/>
+                </item>
+                <item row="2" column="4">
+                 <widget class="QSpinBox" name="spinBox_TIMEvent_Mode1_Units"/>
+                </item>
+                <item row="1" column="0" colspan="2">
+                 <widget class="QComboBox" name="comboBox_TIMEvent_Hour"/>
+                </item>
+                <item row="4" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>Mode 4</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+                 <widget class="QLabel" name="label_8">
+                  <property name="text">
+                   <string>TIM Event No.</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="spinBox_TIMEvent_Mode3A_Tens"/>
+                </item>
+                <item row="0" column="2" colspan="2">
+                 <widget class="QComboBox" name="comboBox_TIMEvent">
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -886,7 +1995,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>765</width>
+     <width>741</width>
      <height>33</height>
     </rect>
    </property>
@@ -906,11 +2015,17 @@
    <addaction name="menuEdit"/>
   </widget>
   <widget class="QDockWidget" name="dockWidget_5">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="floating">
     <bool>false</bool>
    </property>
    <property name="features">
-    <set>QDockWidget::DockWidgetFeature::NoDockWidgetFeatures</set>
+    <set>QDockWidget::DockWidgetFeature::DockWidgetMovable</set>
+   </property>
+   <property name="windowTitle">
+    <string/>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
@@ -1036,6 +2151,9 @@
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Expanding</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>17</width>
@@ -1078,6 +2196,53 @@
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>Dock_L16_pBut</tabstop>
+  <tabstop>checkBox_Stat_Mode2</tabstop>
+  <tabstop>checkBox_Stat_Mode3</tabstop>
+  <tabstop>comboBox_IFF_STATUS</tabstop>
+  <tabstop>checkBox_Stat_Mode4</tabstop>
+  <tabstop>checkBox_Stat_Mode1</tabstop>
+  <tabstop>checkBox_Stat_ModeC</tabstop>
+  <tabstop>comboBox_Stat_Mode4</tabstop>
+  <tabstop>comboBox_TIMEvent_Mode4</tabstop>
+  <tabstop>spinBox_TIMEvent_Mode3A_Thousands</tabstop>
+  <tabstop>checkBox_PosEvent_Mode3</tabstop>
+  <tabstop>comboBox_PosEvent</tabstop>
+  <tabstop>checkBox_PosEvent_Mode1</tabstop>
+  <tabstop>checkBox_PosEvent_Mode2</tabstop>
+  <tabstop>comboBox_PosEvent_Direction</tabstop>
+  <tabstop>checkBox_PosEvent_ModeS</tabstop>
+  <tabstop>checkBox_PosEvent_Mode4</tabstop>
+  <tabstop>checkBox_PosEvent_ModeC</tabstop>
+  <tabstop>btn_TrTab00</tabstop>
+  <tabstop>btn_TrTab01</tabstop>
+  <tabstop>btn_TrTab03</tabstop>
+  <tabstop>btn_TrTab02</tabstop>
+  <tabstop>btn_TrTab20</tabstop>
+  <tabstop>btn_TrTab21</tabstop>
+  <tabstop>btn_TrTab22</tabstop>
+  <tabstop>btn_TrTab23</tabstop>
+  <tabstop>comBox_Mode</tabstop>
+  <tabstop>comBox_SubMode</tabstop>
+  <tabstop>comBox_TerTable</tabstop>
+  <tabstop>btn_TrTab10</tabstop>
+  <tabstop>btn_TrTab11</tabstop>
+  <tabstop>btn_TrTab12</tabstop>
+  <tabstop>btn_TrTab13</tabstop>
+  <tabstop>Dock_STPT_pBut</tabstop>
+  <tabstop>STPT_sub_INS_pBut</tabstop>
+  <tabstop>STPT_sub_Lines_pBut</tabstop>
+  <tabstop>STPT_sub_PPTs_pBut</tabstop>
+  <tabstop>STPT_sub_WPNT_pBut</tabstop>
+  <tabstop>Dock_HARM_pBut</tabstop>
+  <tabstop>Dock_IFF_pBut</tabstop>
+  <tabstop>SteerPointView</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>Settings_pBut</tabstop>
+  <tabstop>Exit_pBut</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

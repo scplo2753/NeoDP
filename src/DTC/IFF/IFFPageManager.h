@@ -4,19 +4,31 @@
 #include <QComboBox>
 #include <QCheckBox>
 #include <QLineEdit>
+#include <QSpinBox>
 class IFFPageManager : public QObject
 {
     Q_OBJECT
 public:
     IFFPageManager(Ui_NeoDP *ui, QObject *parent = nullptr);
-    ~IFFPageManager();
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private slots:
     void init_TimeEvent_Group_Value(int number);
     void init_PosEvent_Group_Value(int number);
+
     void slot_PosEvent_Direction_Changed(int index);
 
+    void on_Mode1Digit_Changed();
+    void on_Mode2Digit_Changed();
+    void on_Mode3ADigit_Changed();
+
+    void on_TIMEvent_Mode1Digit_Changed();
+    void on_TIMEvent_Mode3Digit_Changed();
+
 private: // Methods
+    void setup_filter();
     void connectionManager();
     void init_Widgets();
     void init_Status_Group_Value();
@@ -26,9 +38,16 @@ private: // Members
 
     /*IFF Stat Group*/
     QComboBox *comboBox_IFF_STATUS;
-    QLineEdit *lineEdit_Stat_Mode_1;
-    QLineEdit *lineEdit_Stat_Mode_2;
-    QLineEdit *lineEdit_Stat_Mode_3;
+    QSpinBox *spinBox_Stat_Mode1_Tens;
+    QSpinBox *spinBox_Stat_Mode1_Units;
+    QSpinBox *spinBox_Stat_Mode2_Thousands;
+    QSpinBox *spinBox_Stat_Mode2_Hundreds;
+    QSpinBox *spinBox_Stat_Mode2_Tens;
+    QSpinBox *spinBox_Stat_Mode2_Units;
+    QSpinBox *spinBox_Stat_Mode3A_Thousands;
+    QSpinBox *spinBox_Stat_Mode3A_Hundreds;
+    QSpinBox *spinBox_Stat_Mode3A_Tens;
+    QSpinBox *spinBox_Stat_Mode3A_Units;
     QComboBox *comboBox_Stat_Mode_4;
     QCheckBox *checkBox_Stat_Mode1;
     QCheckBox *checkBox_Stat_Mode2;
@@ -52,8 +71,12 @@ private: // Members
     QComboBox *comboBox_Time_Event;
     QComboBox *comboBox_TIMEvent_Hour;
     QComboBox *comboBox_TIMEvent_Minute;
-    QLineEdit *lineEdit_TIMEvent_Mode1;
-    QLineEdit *lineEdit_TIMEvent_Mode3;
+    QSpinBox *spinBox_TIMEvent_Mode1_Tens;
+    QSpinBox *spinBox_TIMEvent_Mode1_Units;
+    QSpinBox *spinBox_TIMEvent_Mode3A_Thousands;
+    QSpinBox *spinBox_TIMEvent_Mode3A_Hundreds;
+    QSpinBox *spinBox_TIMEvent_Mode3A_Tens;
+    QSpinBox *spinBox_TIMEvent_Mode3A_Units;
     QComboBox *comboBox_TIMEvent_Mode4;
 
     /*----------------Values-----------------*/

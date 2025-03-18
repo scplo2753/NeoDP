@@ -11,8 +11,8 @@ HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
 {
   QWidget *parentWidget = qobject_cast<QWidget *>(parent);
 
-  Map_ALIC_Name = JsonReaderObj->getMap_ALIC_Name();
-  Map_Name_ALIC = JsonReaderObj->getMap_Name_ALIC();
+  Map_ALIC_Name = JsonReaderObj->getAlicToNameMap();
+  Map_Name_ALIC = JsonReaderObj->getNameToAlicMap();
 
   HarmListDialogObj = new HarmListDialog(tr("Select an SAM system"), JsonReaderObj, parentWidget);
 

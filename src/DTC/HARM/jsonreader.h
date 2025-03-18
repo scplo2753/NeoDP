@@ -14,32 +14,32 @@ struct ALIC_Struct
     QSharedPointer<QHash<QString, ALIC_Struct>> Child = nullptr;
 };
 
-class JsonReader
+class JsonReader: public QObject
 {
 public:
-    JsonReader();
+    JsonReader(QObject *parent = nullptr);
 
-    const QSharedPointer<QHash<QString, ALIC_Struct>> getAlicHash() const;
+    const QHash<QString, ALIC_Struct> getAlicStructureHash() const;
 
-    const QHash<QString, QString> &getMap_ALIC_Name() const;
+    const QHash<QString, QString> &getAlicToNameMap() const;
 
-    const QHash<QString, QString> &getMap_Name_ALIC() const;
+    const QHash<QString, QString> &getNameToAlicMap() const;
 
     QVector<QString> getKeys();
 
-    QVector<QString> getChild(QString key);
+    QVector<QString> getChild(QString parentKey);
 
 private:
     QByteArray loadFile(const QString &file_path);
     void parseJson(const QString &file_path);
     void initAtoN(QString ALIC, QString Name);
-    void toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &root, const QJsonObject &samObject);
+    void toAlicHash(QHash<QString, ALIC_Struct> &root, const QJsonObject &samObject);
 
     QString file_path;
     QVariantMap JsonMap;
     QHash<QString, QString> map_ALIC_Name;
     QHash<QString, QString> map_Name_ALIC;
-    QSharedPointer<QHash<QString, ALIC_Struct>> AlicHash = QSharedPointer<QHash<QString, ALIC_Struct>>(new QHash<QString, ALIC_Struct>);
+    QHash<QString, ALIC_Struct> AlicHash;
 };
 
 #endif // JSONREADER_H

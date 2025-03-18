@@ -1,7 +1,7 @@
 #include "jsonreader.h"
 #include <QJsonArray>
 
-JsonReader::JsonReader() : file_path(":/Resources/ALIC.json")
+JsonReader::JsonReader(QObject *parent) : file_path(":/Resources/ALIC.json"), QObject(parent)
 {
     parseJson(file_path);
 }
@@ -46,7 +46,7 @@ inline void JsonReader::initAtoN(QString ALIC, QString Name)
     map_Name_ALIC[Name] = ALIC;
 }
 
-void JsonReader::toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &root, const QJsonObject &samObject)
+void JsonReader::toAlicHash(QHash<QString, ALIC_Struct> &root, const QJsonObject &samObject)
 {
     ALIC_Struct temp;
     temp.Name = samObject["Name"].toString();
@@ -58,21 +58,21 @@ void JsonReader::toAlicHash(const QSharedPointer<QHash<QString, ALIC_Struct>> &r
         temp.Child = QSharedPointer<QHash<QString, ALIC_Struct>>(new QHash<QString, ALIC_Struct>());
         for (const QJsonValue &subValue : samObject["Child"].toArray())
         {
-            toAlicHash(temp.Child, subValue.toObject());
+            toAlicHash(*temp.Child, subValue.toObject());
         }
     }
-    root->insert(temp.Name, temp);
+    root.insert(temp.Name, temp);
 }
 
 QVector<QString> JsonReader::getKeys()
 {
-    return AlicHash->keys().toVector();
+    return AlicHash.keys().toVector();
 }
 
 QVector<QString> JsonReader::getChild(QString key)
 {
     QVector<QString> childKeys;
-    const auto &item = AlicHash->value(key);
+    const auto &item = AlicHash.value(key);
     if (item.Child)
     {
         childKeys = item.Child->keys().toVector();
@@ -80,17 +80,17 @@ QVector<QString> JsonReader::getChild(QString key)
     return childKeys;
 }
 
-const QSharedPointer<QHash<QString, ALIC_Struct>> JsonReader::getAlicHash() const
+const QHash<QString, ALIC_Struct> JsonReader::getAlicStructureHash() const
 {
     return AlicHash;
 }
 
-const QHash<QString, QString> &JsonReader::getMap_ALIC_Name() const
+const QHash<QString, QString> &JsonReader::getAlicToNameMap() const
 {
     return map_ALIC_Name;
 }
 
-const QHash<QString, QString> &JsonReader::getMap_Name_ALIC() const
+const QHash<QString, QString> &JsonReader::getNameToAlicMap() const
 {
     return map_Name_ALIC;
 }

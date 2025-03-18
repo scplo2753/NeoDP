@@ -14,7 +14,8 @@ SOURCES += \
     src/DTC/HARM/harmlistdialog.cpp \
     src/DTC/STPT/stptsortfilterproxymodel.cpp \
     src/DTC/STPT/stptitemmodel.cpp \
-    src/DTC/IFF/IFFPageManager.cpp
+    src/DTC/IFF/IFFPageManager.cpp \
+    src/DTC/Link16/L16PageManager.cpp
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
@@ -26,7 +27,8 @@ HEADERS += \
     src/DTC/STPT/stptsortfilterproxymodel.h \
     src/DTC/STPT/stptitemmodel.h \
     src/DTC/STPT/STPTMap.h \
-    src/DTC/IFF/IFFPageManager.h
+    src/DTC/IFF/IFFPageManager.h \
+    src/DTC/Link16/L16PageManager.h
 
 
 FORMS += $$PWD/src/NeoDP.ui
