@@ -1,5 +1,7 @@
 #pragma once
 #include "ui_NeoDP.h"
+#include "L16PageA.h"
+#include "L16PageB.h"
 #include <QObject>
 class L16PageManager : public QObject
 {
@@ -9,6 +11,8 @@ public:
 
 private:
     Ui_NeoDP *Ui;
+    L16PageA *pageA;
+    L16PageB *pageB;
 
     QHash<QString, QString> L16_Values = {
         {"FILE_A_VOICE_GROUP_A_CHANNEL", "000"},

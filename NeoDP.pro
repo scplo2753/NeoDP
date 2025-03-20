@@ -15,7 +15,10 @@ SOURCES += \
     src/DTC/STPT/stptsortfilterproxymodel.cpp \
     src/DTC/STPT/stptitemmodel.cpp \
     src/DTC/IFF/IFFPageManager.cpp \
-    src/DTC/Link16/L16PageManager.cpp
+    src/DTC/Link16/L16PageManager.cpp \
+    src/DTC/Link16/L16PageBase.cpp \
+    src/DTC/Link16/L16PageA.cpp \
+    src/DTC/Link16/L16pageB.cpp
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
@@ -24,11 +27,16 @@ HEADERS += \
     src/DTC/HARM/harmsectionmanager.h \
     src/DTC/HARM/jsonreader.h \
     src/DTC/HARM/harmlistdialog.h \
+    src/DTC/Link16/l16pageb.h \
     src/DTC/STPT/stptsortfilterproxymodel.h \
     src/DTC/STPT/stptitemmodel.h \
     src/DTC/STPT/STPTMap.h \
     src/DTC/IFF/IFFPageManager.h \
-    src/DTC/Link16/L16PageManager.h
+    src/DTC/Link16/L16PageManager.h \
+    src/DTC/Link16/L16PageBase.h \
+    src/DTC/Link16/L16PageA.h \
+    src/DTC/Link16/L16pageB.h
+
 
 
 FORMS += $$PWD/src/NeoDP.ui

@@ -11,7 +11,8 @@ DTC::DTC(Ui_NeoDP *ui, QObject *parent)
       STPTTabModel(new STPTItemModel()),
       STPTProxyModel(new STPTSortFilterProxyModel()),
       HarmManager(new HARMSectionManager(ui)),
-      IFFManagerObj(new IFFPageManager(ui))
+      IFFManagerObj(new IFFPageManager(ui)),
+      L16PageManagerObj(new L16PageManager(ui))
 {
     InitSTPTSection();
     STPTProxyModel->setSourceModel(STPTTabModel);
@@ -26,6 +27,7 @@ DTC::DTC(Ui_NeoDP *ui, QObject *parent)
 
     connect(ui->Dock_HARM_pBut, &QPushButton::clicked, this, &DTC::Dock_Harm_pButClicked);
     connect(ui->Dock_IFF_pBut, &QPushButton::clicked, this, &DTC::Dock_IFF_pButCilcked);
+    connect(ui->Dock_L16_pBut,&QPushButton::clicked,this,&DTC::Dock_L16_pButClicked);
 }
 
 DTC::~DTC()
@@ -101,5 +103,11 @@ void DTC::Dock_Harm_pButClicked()
 void DTC::Dock_IFF_pButCilcked()
 {
     ui->stackedWidget->setCurrentWidget(ui->IFFWidget);
+    ui->DockSTPTWidget->hide();
+}
+
+void DTC::Dock_L16_pButClicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->Link16PageWidget);
     ui->DockSTPTWidget->hide();
 }

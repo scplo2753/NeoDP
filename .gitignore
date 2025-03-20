@@ -12,3 +12,4 @@ NeoDP.qtvscr
 NeoDP.sln
 /build
 /scripts
+.clangd

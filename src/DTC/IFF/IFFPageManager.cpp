@@ -118,7 +118,7 @@ bool IFFPageManager::eventFilter(QObject *obj, QEvent *event)
 void IFFPageManager::connectionManager()
 {
     /*Status Group*/
-    connect(comboBox_IFF_STATUS, QOverload<int>::of(&QComboBox::currentIndexChanged), [this]()
+    connect(comboBox_IFF_STATUS, QOverload<int>::of(&QComboBox::currentIndexChanged),this, [this]()
             { IFF_Values["IFF Status"] = comboBox_IFF_STATUS->currentText(); });
     connect(spinBox_Stat_Mode1_Tens, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_Mode1Digit_Changed);
     connect(spinBox_Stat_Mode1_Units, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_Mode1Digit_Changed);
@@ -130,20 +130,20 @@ void IFFPageManager::connectionManager()
     connect(spinBox_Stat_Mode3A_Hundreds, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_Mode3ADigit_Changed);
     connect(spinBox_Stat_Mode3A_Tens, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_Mode3ADigit_Changed);
     connect(spinBox_Stat_Mode3A_Units, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_Mode3ADigit_Changed);
-    connect(comboBox_Stat_Mode_4, QOverload<int>::of(&QComboBox::currentIndexChanged), [this](int index)
+    connect(comboBox_Stat_Mode_4, QOverload<int>::of(&QComboBox::currentIndexChanged),this, [this](int index)
             { IFF_Values["Mode4 Key"] = QString::number(comboBox_Stat_Mode_4->currentIndex()); });
 
     /*Pos Event Group*/
-    connect(lineEdit_PosEvent_WayPoint, &QLineEdit::editingFinished, [this]()
+    connect(lineEdit_PosEvent_WayPoint, &QLineEdit::editingFinished, this,[this]()
             { IFF_Values[QString("POS %1 WayPoint").arg(comboBox_PosEvent->currentText())] = lineEdit_PosEvent_WayPoint->text(); });
     connect(comboBox_PosEvent, &QComboBox::currentIndexChanged, this, &IFFPageManager::init_PosEvent_Group_Value);
     connect(comboBox_PosEvent_Direction, &QComboBox::currentIndexChanged, this, &IFFPageManager::slot_PosEvent_Direction_Changed);
 
     /*Time Event Group*/
     connect(comboBox_Time_Event, &QComboBox::currentIndexChanged, this, &IFFPageManager::init_TimeEvent_Group_Value);
-    connect(comboBox_TIMEvent_Hour, &QComboBox::currentIndexChanged, [this]()
+    connect(comboBox_TIMEvent_Hour, &QComboBox::currentIndexChanged, this,[this]()
             { IFF_Values[QString("TIME %1 Criteria").arg(comboBox_Time_Event->currentText())] = QString("%1%2").arg(comboBox_TIMEvent_Hour->currentText(), comboBox_TIMEvent_Minute->currentText()); });
-    connect(comboBox_TIMEvent_Minute, &QComboBox::currentIndexChanged, [this]()
+    connect(comboBox_TIMEvent_Minute, &QComboBox::currentIndexChanged,this, [this]()
             { IFF_Values[QString("TIME %1 Criteria").arg(comboBox_Time_Event->currentText())] = QString("%1%2").arg(comboBox_TIMEvent_Hour->currentText(), comboBox_TIMEvent_Minute->currentText()); });
     connect(spinBox_TIMEvent_Mode1_Tens, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_TIMEvent_Mode1Digit_Changed);
     connect(spinBox_TIMEvent_Mode1_Units, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_TIMEvent_Mode1Digit_Changed);
@@ -151,7 +151,7 @@ void IFFPageManager::connectionManager()
     connect(spinBox_TIMEvent_Mode3A_Hundreds, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_TIMEvent_Mode3Digit_Changed);
     connect(spinBox_TIMEvent_Mode3A_Tens, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_TIMEvent_Mode3Digit_Changed);
     connect(spinBox_TIMEvent_Mode3A_Units, QOverload<int>::of(&QSpinBox::valueChanged), this, &IFFPageManager::on_TIMEvent_Mode3Digit_Changed);
-    connect(comboBox_TIMEvent_Mode4, QOverload<int>::of(&QComboBox::currentIndexChanged), [this](int index)
+    connect(comboBox_TIMEvent_Mode4, QOverload<int>::of(&QComboBox::currentIndexChanged),this, [this](int index)
             { IFF_Values[QString("TIME %1 Mode4 Key").arg(comboBox_Time_Event->currentText())] = QString::number(comboBox_TIMEvent_Mode4->currentIndex()); });
 }
 
@@ -234,8 +234,9 @@ void IFFPageManager::init_PosEvent_Group_Value(int number)
 
 void IFFPageManager::init_TimeEvent_Group_Value(int number)
 {
-    int Hour = IFF_Values[QString("TIME %1 Criteria").arg(number)].mid(0, 2).toInt();
-    int Minute = IFF_Values[QString("TIME %1 Criteria").arg(number)].mid(2, 2).toInt();
+    QStringView TIME_CRITERIA=IFF_Values[QString("TIME %1 Criteria").arg(number)];
+    int Hour = TIME_CRITERIA.mid(0, 2).toInt();
+    int Minute = TIME_CRITERIA.mid(2, 2).toInt();
     comboBox_TIMEvent_Hour->setCurrentIndex(Hour);
     comboBox_TIMEvent_Minute->setCurrentIndex(Minute);
     spinBox_TIMEvent_Mode1_Tens->setValue(IFF_Values[QString("TIME %1 Mode1 Code").arg(number)].mid(0, 1).toInt());

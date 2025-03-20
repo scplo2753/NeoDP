@@ -1,23 +1,36 @@
 #pragma once
-//#include "ui_NeoDP.h"
+#include "ui_NeoDP.h"
 #include <QLineEdit>
+#include <QIntValidator>
 #include <QComboBox>
 #include <QCheckBox>
 #include <QWidget>
 
-//Abstract class for L16 pages
+// Abstract class for L16 pages
 class L16PageBase : public QWidget
 {
     Q_OBJECT
 public:
-    explicit L16PageBase(QWidget *parent = nullptr);
+    explicit L16PageBase(Ui_NeoDP *Ui, QHash<QString, QString> *m_L16_Values, QWidget *parent = nullptr);
     virtual ~L16PageBase() = default;
 
 protected: // Functions
-    virtual void setupUi(QWidget *parent);
-    virtual void setupWidget();
+    virtual void define_Page() = 0;
+    void initUi();
+    void setupWidget();
+    void initDynamicVariables();
+    void init_lineEdit_of_STNs();
+    void init_lineEdit_of_Channels();
+    void init_Misc_Widgets();
 
 protected: // Variables
+    char Page;
+
+    Ui_NeoDP *Ui;
+
+    QHash<QString, QString> *m_L16_Values;
+    QHash<QString, QString> L16_Dynamic_Values;
+
     QLineEdit *lineEdit_VoiceAChannel;
     QLineEdit *lineEdit_VoiceBChannel;
 

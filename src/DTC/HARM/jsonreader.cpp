@@ -1,7 +1,7 @@
 #include "jsonreader.h"
 #include <QJsonArray>
 
-JsonReader::JsonReader(QObject *parent) : file_path(":/Resources/ALIC.json"), QObject(parent)
+JsonReader::JsonReader(QObject *parent) : QObject(parent), file_path(":/Resources/ALIC.json")
 {
     parseJson(file_path);
 }
@@ -29,7 +29,7 @@ void JsonReader::parseJson(const QString &file_path)
     auto rootArray = json_doc.array();
     ALIC_Struct samSystem;
 
-    for (const QJsonValue &value : rootArray)
+    for (const QJsonValue &value : std::as_const(rootArray))
     {
         if (value.isObject())
         {
@@ -56,7 +56,7 @@ void JsonReader::toAlicHash(QHash<QString, ALIC_Struct> &root, const QJsonObject
     if (!samObject["Child"].isNull())
     {
         temp.Child = QSharedPointer<QHash<QString, ALIC_Struct>>(new QHash<QString, ALIC_Struct>());
-        for (const QJsonValue &subValue : samObject["Child"].toArray())
+        for (auto subValue : samObject["Child"].toArray())
         {
             toAlicHash(*temp.Child, subValue.toObject());
         }
@@ -66,7 +66,7 @@ void JsonReader::toAlicHash(QHash<QString, ALIC_Struct> &root, const QJsonObject
 
 QVector<QString> JsonReader::getKeys()
 {
-    return AlicHash.keys().toVector();
+    return AlicHash.keys();
 }
 
 QVector<QString> JsonReader::getChild(QString key)

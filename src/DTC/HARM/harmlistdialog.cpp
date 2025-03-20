@@ -26,7 +26,7 @@ void HarmListDialog::setupTree()
 {
     SAM_System_Tree->setColumnCount(1);
     SAM_System_Tree->setHeaderHidden(true);
-    for (auto key : JsonKeys)
+    for (const auto &key : std::as_const(JsonKeys))
     {
         SAM_System_Tree->addTopLevelItem(importItem(key));
     }
@@ -44,7 +44,7 @@ QTreeWidgetItem *HarmListDialog::importItem(QString key)
     QVector<QString> child = JsonReaderObj->getChild(key);
     if (!child.empty())
     {
-        for (auto temp : child)
+        for (const auto &temp : std::as_const(child))
         {
             QTreeWidgetItem *childItem = new QTreeWidgetItem(item);
             childItem->setText(0, temp);

@@ -22,6 +22,7 @@ public:
 private:
     Ui_NeoDP *ui;
     DTC *pDTC;
+    //
 
 private slots:
     void on_Exit_pBut_clicked();

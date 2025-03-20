@@ -2,12 +2,12 @@
 
 HARMSectionManager::HARMSectionManager(Ui_NeoDP *ui, QObject *parent)
     : QObject{parent},
+      JsonReaderObj(new JsonReader),
+      HarmListDialogObj(nullptr),
       ui(ui),
       comBox_Mode(nullptr),
       comBox_SubMode(nullptr),
-      comBox_TerTable(nullptr),
-      JsonReaderObj(new JsonReader),
-      HarmListDialogObj(nullptr)
+      comBox_TerTable(nullptr)
 {
   QWidget *parentWidget = qobject_cast<QWidget *>(parent);
 

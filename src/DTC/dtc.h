@@ -3,6 +3,7 @@
 #include "STPT/stptsortfilterproxymodel.h"
 #include "HARM/harmsectionmanager.h"
 #include "IFF/iffpagemanager.h"
+#include "Link16/L16PageManager.h"
 #include "ui_NeoDP.h"
 #include <QSettings>
 #include <QVector>
@@ -32,6 +33,9 @@ private:
     //[IFF]
     IFFPageManager *IFFManagerObj;
 
+    //[L16]
+    L16PageManager *L16PageManagerObj;
+
     void InitSTPTSection();
 
 private slots:
@@ -43,4 +47,5 @@ private slots:
 
     void Dock_Harm_pButClicked();
     void Dock_IFF_pButCilcked();
+    void Dock_L16_pButClicked();
 };
