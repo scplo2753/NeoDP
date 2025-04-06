@@ -8,6 +8,8 @@ class L16PageManager : public QObject
     Q_OBJECT
 public:
     L16PageManager(Ui_NeoDP *Ui, QObject *parent = nullptr);
+    //void set_Values(QHash<QString,QString> L16_Values);
+    //QHash<QString,QString> get_Values();
 
 private:
     Ui_NeoDP *Ui;

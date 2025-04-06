@@ -35,7 +35,8 @@ HEADERS += \
     src/DTC/Link16/L16PageManager.h \
     src/DTC/Link16/L16PageBase.h \
     src/DTC/Link16/L16PageA.h \
-    src/DTC/Link16/L16pageB.h
+    src/DTC/Link16/L16pageB.h \
+    src/PopUp/utils.h
 
 
 

@@ -25,5 +25,15 @@ private:
     //
 
 private slots:
+    void STPTPuButtonClicked();
+    void STPTsubInsPuButtonClicked();
+    void STPTsubLinesPuButtonClicked();
+    void STPTsubPPTsPuButtonClicked();
+    void STPTsubWPNTPuButtonClicked();
+
+    void Dock_Harm_pButClicked();
+    void Dock_IFF_pButCilcked();
+    void Dock_L16_pButClicked();
+
     void on_Exit_pBut_clicked();
 };

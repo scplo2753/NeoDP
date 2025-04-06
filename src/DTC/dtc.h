@@ -17,8 +17,9 @@ class DTC : public QObject
 public:
     explicit DTC(Ui_NeoDP *ui, QObject *parent = nullptr);
     ~DTC();
+    void setSTPTFilter(const QString &filter);
 
-private:
+private: 
     Ui_NeoDP *ui;
     QSettings *DTCSettings;
 
@@ -36,16 +37,6 @@ private:
     //[L16]
     L16PageManager *L16PageManagerObj;
 
+private: //Functions
     void InitSTPTSection();
-
-private slots:
-    void STPTPuButtonClicked(bool checked = false);
-    void STPTsubInsPuButtonClicked(bool checked = false);
-    void STPTsubLinesPuButtonClicked(bool checked = false);
-    void STPTsubPPTsPuButtonClicked();
-    void STPTsubWPNTPuButtonClicked();
-
-    void Dock_Harm_pButClicked();
-    void Dock_IFF_pButCilcked();
-    void Dock_L16_pButClicked();
 };

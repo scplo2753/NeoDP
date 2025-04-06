@@ -18,16 +18,6 @@ DTC::DTC(Ui_NeoDP *ui, QObject *parent)
     STPTProxyModel->setSourceModel(STPTTabModel);
     ui->SteerPointView->setModel(STPTProxyModel);
     ui->SteerPointView->setSortingEnabled(true);
-
-    connect(ui->Dock_STPT_pBut, &QPushButton::clicked, this, &DTC::STPTPuButtonClicked);
-    connect(ui->STPT_sub_INS_pBut, &QPushButton::clicked, this, &DTC::STPTsubInsPuButtonClicked);
-    connect(ui->STPT_sub_Lines_pBut, &QPushButton::clicked, this, &DTC::STPTsubLinesPuButtonClicked);
-    connect(ui->STPT_sub_PPTs_pBut, &QPushButton::clicked, this, &DTC::STPTsubPPTsPuButtonClicked);
-    connect(ui->STPT_sub_WPNT_pBut, &QPushButton::clicked, this, &DTC::STPTsubWPNTPuButtonClicked);
-
-    connect(ui->Dock_HARM_pBut, &QPushButton::clicked, this, &DTC::Dock_Harm_pButClicked);
-    connect(ui->Dock_IFF_pBut, &QPushButton::clicked, this, &DTC::Dock_IFF_pButCilcked);
-    connect(ui->Dock_L16_pBut,&QPushButton::clicked,this,&DTC::Dock_L16_pButClicked);
 }
 
 DTC::~DTC()
@@ -59,55 +49,11 @@ void DTC::InitSTPTSection()
     DTCSettings->endArray();
 }
 
-void DTC::STPTPuButtonClicked(bool checked)
+void DTC::setSTPTFilter(const QString &filter)
 {
-    Q_UNUSED(checked)
-    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTProxyModel->setFilterRegularExpression("");
-    STPTProxyModel->invalidate();
-    ui->DockSTPTWidget->show();
-}
-
-void DTC::STPTsubInsPuButtonClicked(bool checked)
-{
-    Q_UNUSED(checked)
-    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTProxyModel->setFilterRegularExpression("^target");
-}
-
-void DTC::STPTsubLinesPuButtonClicked(bool checked)
-{
-    Q_UNUSED(checked)
-    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTProxyModel->setFilterRegularExpression("^lineSTPT");
-}
-
-void DTC::STPTsubPPTsPuButtonClicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTProxyModel->setFilterRegularExpression("^ppt");
-}
-
-void DTC::STPTsubWPNTPuButtonClicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    STPTProxyModel->setFilterRegularExpression("^wpntarget");
-}
-
-void DTC::Dock_Harm_pButClicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->HARMWidget);
-    ui->DockSTPTWidget->hide();
-}
-
-void DTC::Dock_IFF_pButCilcked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->IFFWidget);
-    ui->DockSTPTWidget->hide();
-}
-
-void DTC::Dock_L16_pButClicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->Link16PageWidget);
-    ui->DockSTPTWidget->hide();
+    if(STPTProxyModel)
+    {
+        STPTProxyModel->setFilterRegularExpression(filter);
+        STPTProxyModel->invalidate();
+    }
 }
