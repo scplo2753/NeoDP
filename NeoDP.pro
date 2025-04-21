@@ -18,7 +18,8 @@ SOURCES += \
     src/DTC/Link16/L16PageManager.cpp \
     src/DTC/Link16/L16PageBase.cpp \
     src/DTC/Link16/L16PageA.cpp \
-    src/DTC/Link16/L16pageB.cpp
+    src/DTC/Link16/L16pageB.cpp \
+    src/PopUp/PopUpManager.cpp
 
 HEADERS += \
     $$files($$PWD/src/*.h) \
@@ -36,7 +37,8 @@ HEADERS += \
     src/DTC/Link16/L16PageBase.h \
     src/DTC/Link16/L16PageA.h \
     src/DTC/Link16/L16pageB.h \
-    src/PopUp/utils.h
+    src/PopUp/PopUpManager.h \
+    src/PopUp/utils/utils.h
 
 
 

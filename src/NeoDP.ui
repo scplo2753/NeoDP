@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>741</width>
-    <height>689</height>
+    <width>938</width>
+    <height>706</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -852,6 +852,390 @@
            <widget class="QTableView" name="SteerPointView"/>
           </item>
          </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="PopUpWidget">
+       <layout class="QGridLayout" name="gridLayout_43">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_4">
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+          <widget class="QGroupBox" name="groupBox_14">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>411</width>
+             <height>291</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string>Attack Profile Setup</string>
+           </property>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>30</y>
+              <width>391</width>
+              <height>241</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_53">
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_31">
+               <property name="text">
+                <string>Dive Angle:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_77">
+               <property name="text">
+                <string>Action Point to TGT Range:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2" colspan="2">
+              <widget class="QSpinBox" name="spinBox_Action_Range"/>
+             </item>
+             <item row="5" column="1">
+              <widget class="QSlider" name="horizontalSlider_Tracking_Time">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_81">
+               <property name="text">
+                <string>Pulling G-Force:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_99">
+               <property name="text">
+                <string>Choose STPT:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2" colspan="2">
+              <widget class="QSpinBox" name="spinBox_Attack_Heading"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_78">
+               <property name="text">
+                <string>Speed(TAS):</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2" colspan="2">
+              <widget class="QSpinBox" name="spinBox_Speed"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QSlider" name="horizontalSlider_Speed">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QSlider" name="horizontalSlider_Release_Alt">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2" colspan="2">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_Pulling_G"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_80">
+               <property name="text">
+                <string>Attack Heading:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QSlider" name="horizontalSlider_Pulling_G">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSlider" name="horizontalSlider_Attack_Heading">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="spinBox_PopUp_STPT"/>
+             </item>
+             <item row="5" column="2" colspan="2">
+              <widget class="QSpinBox" name="spinBox_Tracking_Time"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_57">
+               <property name="text">
+                <string>Release Alt.:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_79">
+               <property name="text">
+                <string>Tracking Time:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="2" colspan="2">
+              <widget class="QSpinBox" name="spinBox_Dive_Angle"/>
+             </item>
+             <item row="7" column="2" colspan="2">
+              <widget class="QSpinBox" name="spinBox_Release_Alt"/>
+             </item>
+             <item row="2" column="1">
+              <widget class="QSlider" name="horizontalSlider_Action_Range">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QSlider" name="horizontalSlider_Dive_Angle">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QGroupBox" name="groupBox_15">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>300</y>
+             <width>411</width>
+             <height>277</height>
+            </rect>
+           </property>
+           <property name="title">
+            <string>Attack Profile</string>
+           </property>
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>30</y>
+              <width>391</width>
+              <height>231</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_54">
+             <item row="9" column="1">
+              <widget class="QLabel" name="label_98">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLabel" name="label_GS">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_91">
+               <property name="text">
+                <string>Action Range:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QLabel" name="label_97">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="label_82">
+               <property name="text">
+                <string>Ground Speed:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLabel" name="label_ClimbAngle">
+               <property name="text">
+                <string>15</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_87">
+               <property name="text">
+                <string>Climb Angle:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="label_95">
+               <property name="text">
+                <string>Pulldown height:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="label_96">
+               <property name="text">
+                <string>Angle Off</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_76">
+               <property name="text">
+                <string>Speed(TAS):</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLabel" name="label_94">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_83">
+               <property name="text">
+                <string>Offset Angle:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_Speed">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_84">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLabel" name="label_86">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="label_PopUp_STPT">
+               <property name="text">
+                <string>1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_89">
+               <property name="text">
+                <string>STPT:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_85">
+               <property name="text">
+                <string>Pull Heading:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_93">
+               <property name="text">
+                <string>Apex Alt.:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="label_ActionRange">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_90">
+               <property name="text">
+                <string>Horizontal Tracking Distance:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="label_100">
+               <property name="text">
+                <string>Vertical Tracking Distance:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_HorizontalTrackingDistance">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
+              <widget class="QLabel" name="label_VerticalTrackingDistance">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_VIPtoTGT_BRG">
+           <property name="geometry">
+            <rect>
+             <x>470</x>
+             <y>270</y>
+             <width>49</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+          <widget class="QGraphicsView" name="graphicsView">
+           <property name="geometry">
+            <rect>
+             <x>470</x>
+             <y>20</y>
+             <width>256</width>
+             <height>192</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -2193,7 +2577,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>741</width>
+     <width>938</width>
      <height>33</height>
     </rect>
    </property>

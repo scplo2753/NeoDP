@@ -1,6 +1,7 @@
 #pragma once
 #include "ui_NeoDP.h"
 #include "DTC/dtc.h"
+#include "PopUp/PopUpManager.h"
 
 #include <QSpinBox>
 #include <QFontComboBox>
@@ -21,7 +22,8 @@ public:
 
 private:
     Ui_NeoDP *ui;
-    DTC *pDTC;
+    DTC *m_DTC;
+    PopUpManager *m_PopUpManager;
     //
 
 private slots:

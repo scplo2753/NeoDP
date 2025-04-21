@@ -4,11 +4,13 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       ui(new Ui_NeoDP()),
-      pDTC(nullptr)
+      m_DTC(nullptr),
+      m_PopUpManager(nullptr)
 {
     setWindowTitle(tr("NeoDP"));
     ui->setupUi(this);
-    pDTC = new DTC(ui, this);
+    m_DTC = new DTC(ui, this);
+    m_PopUpManager= new PopUpManager(ui, this);
     ui->DockSTPTWidget->hide();
 
     connect(ui->Dock_STPT_pBut, &QPushButton::clicked, this, &MainWindow::STPTPuButtonClicked);
@@ -35,32 +37,32 @@ void MainWindow::on_Exit_pBut_clicked()
 void MainWindow::STPTPuButtonClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    pDTC->setSTPTFilter("");
+    m_DTC->setSTPTFilter("");
     ui->DockSTPTWidget->show();
 }
 
 void MainWindow::STPTsubInsPuButtonClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    pDTC->setSTPTFilter("^target");
+    m_DTC->setSTPTFilter("^target");
 }
 
 void MainWindow::STPTsubLinesPuButtonClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    pDTC->setSTPTFilter("^lineSTPT");
+    m_DTC->setSTPTFilter("^lineSTPT");
 }
 
 void MainWindow::STPTsubPPTsPuButtonClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    pDTC->setSTPTFilter("^ppt");
+    m_DTC->setSTPTFilter("^ppt");
 }
 
 void MainWindow::STPTsubWPNTPuButtonClicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->STPTWidget);
-    pDTC->setSTPTFilter("^wpntarget");
+    m_DTC->setSTPTFilter("^wpntarget");
 }
 
 void MainWindow::Dock_Harm_pButClicked()
